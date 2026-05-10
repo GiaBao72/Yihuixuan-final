@@ -1,0 +1,300 @@
+/*
+ * HERO SECTION
+ * Yihuixuan Project - Hero Banner
+ */
+
+/* ═══════════════════════════════════
+   HERO CONTAINER
+═══════════════════════════════════ */
+#s0 {
+  background: linear-gradient(160deg, #020b1a 0%, #031430 60%, #05225a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 100px 40px 60px;
+}
+
+/* ═══════════════════════════════════
+   HERO VIDEO BACKGROUND
+═══════════════════════════════════ */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-video-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    160deg,
+    rgba(2, 11, 26, 0.85) 0%,
+    rgba(3, 20, 48, 0.75) 60%,
+    rgba(5, 34, 90, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.hero-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ═══════════════════════════════════
+   HERO CONTENT
+═══════════════════════════════════ */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--color-secondary);
+  background: linear-gradient(135deg, #4a90e2 0%, #71aaed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ═══════════════════════════════════
+   HERO CTA BUTTONS
+═══════════════════════════════════ */
+.hero-cta {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(27, 95, 212, 0.3);
+}
+
+.hero-btn-primary:hover {
+  background: #1348b0;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(27, 95, 212, 0.4);
+}
+
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════
+   HERO SCROLL INDICATOR
+═══════════════════════════════════ */
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+
+.hero-scroll-icon {
+  width: 24px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  position: relative;
+}
+
+.hero-scroll-icon::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  animation: scroll 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px);
+  }
+}
+
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+
+/* Tablet landscape (1024px) */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 52px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+    max-width: 600px;
+  }
+  
+  .hero-section {
+    padding: 80px 32px 60px;
+  }
+}
+
+/* Tablet portrait (768px) */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .hero-section {
+    padding: 60px 24px 50px;
+  }
+  
+  .hero-cta {
+    gap: 16px;
+  }
+  
+  .hero-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+  
+  .hero-scroll {
+    bottom: 30px;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .hero-section {
+    padding: 50px 20px 40px;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    padding: 14px 24px;
+  }
+  
+  .hero-scroll {
+    display: none;
+  }
+}
+
+/* Small mobile (360px) */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  
+  .hero-subtitle {
+    font-size: 14px;
+  }
+}

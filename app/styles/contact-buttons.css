@@ -1,0 +1,292 @@
+/*
+ * CONTACT BUTTONS - Floating Action Buttons
+ * Yihuixuan Project
+ */
+
+/* ═══════════════════════════════════
+   CONTAINER
+═══════════════════════════════════ */
+.contact-buttons {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 400;
+  display: flex;
+  flex-direction: column; /* Toggle ở dưới, list ở trên - thứ tự HTML tự nhiên */
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* ═══════════════════════════════════
+   TOGGLE BUTTON (Main FAB)
+═══════════════════════════════════ */
+.cb-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b5fd4 0%, #4a90e2 100%);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(27, 95, 212, 0.4),
+              0 0 0 0 rgba(27, 95, 212, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+  animation: pulse 2s infinite;
+}
+
+.cb-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(27, 95, 212, 0.5),
+              0 0 0 8px rgba(27, 95, 212, 0.1);
+}
+
+.cb-toggle:active {
+  transform: scale(0.95);
+}
+
+.cb-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.contact-buttons.expanded .cb-toggle {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
+}
+
+.contact-buttons.expanded .cb-toggle:hover {
+  box-shadow: 0 6px 28px rgba(231, 76, 60, 0.5),
+              0 0 0 8px rgba(231, 76, 60, 0.1);
+}
+
+.contact-buttons.expanded .cb-toggle svg {
+  transform: rotate(90deg);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(27, 95, 212, 0.4),
+                0 0 0 0 rgba(27, 95, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(27, 95, 212, 0.4),
+                0 0 0 12px rgba(27, 95, 212, 0);
+  }
+}
+
+/* ═══════════════════════════════════
+   BUTTONS LIST
+═══════════════════════════════════ */
+.cb-list {
+  display: flex;
+  flex-direction: column; /* Nút đầu tiên ở trên, nút cuối ở dưới */
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px); /* Slide từ dưới lên */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.contact-buttons.expanded .cb-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ═══════════════════════════════════
+   INDIVIDUAL BUTTONS
+═══════════════════════════════════ */
+.cb-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 12px 16px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(10px); /* Slide từ dưới lên */
+  animation: slideUp 0.3s forwards;
+}
+
+.cb-item:hover {
+  transform: translateX(-4px) translateY(0) scale(1.05);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cb-item:active {
+  transform: translateX(-4px) translateY(0) scale(0.98);
+}
+
+/* Staggered animation - thứ tự tự nhiên từ trên xuống */
+.contact-buttons.expanded .cb-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.contact-buttons.expanded .cb-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.contact-buttons.expanded .cb-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.contact-buttons.expanded .cb-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.contact-buttons.expanded .cb-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Icon container */
+.cb-item svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.cb-item:hover svg {
+  transform: scale(1.1);
+}
+
+/* Label */
+.cb-label {
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+/* ═══════════════════════════════════
+   BRAND COLORS
+═══════════════════════════════════ */
+
+/* WeChat - Green */
+.cb-item.wechat {
+  background: rgba(9, 187, 7, 0.15);
+  border-color: rgba(9, 187, 7, 0.3);
+}
+
+.cb-item.wechat:hover {
+  background: rgba(9, 187, 7, 0.25);
+  border-color: rgba(9, 187, 7, 0.5);
+  box-shadow: 0 6px 24px rgba(9, 187, 7, 0.3);
+}
+
+/* WhatsApp - Green */
+.cb-item.whatsapp {
+  background: rgba(37, 211, 102, 0.15);
+  border-color: rgba(37, 211, 102, 0.3);
+}
+
+.cb-item.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.25);
+  border-color: rgba(37, 211, 102, 0.5);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3);
+}
+
+/* Zalo - Blue */
+.cb-item.zalo {
+  background: rgba(0, 112, 240, 0.15);
+  border-color: rgba(0, 112, 240, 0.3);
+}
+
+.cb-item.zalo:hover {
+  background: rgba(0, 112, 240, 0.25);
+  border-color: rgba(0, 112, 240, 0.5);
+  box-shadow: 0 6px 24px rgba(0, 112, 240, 0.3);
+}
+
+/* Phone - Orange */
+.cb-item.phone {
+  background: rgba(255, 152, 0, 0.15);
+  border-color: rgba(255, 152, 0, 0.3);
+}
+
+.cb-item.phone:hover {
+  background: rgba(255, 152, 0, 0.25);
+  border-color: rgba(255, 152, 0, 0.5);
+  box-shadow: 0 6px 24px rgba(255, 152, 0, 0.3);
+}
+
+/* Email - Purple */
+.cb-item.email {
+  background: rgba(156, 39, 176, 0.15);
+  border-color: rgba(156, 39, 176, 0.3);
+}
+
+.cb-item.email:hover {
+  background: rgba(156, 39, 176, 0.25);
+  border-color: rgba(156, 39, 176, 0.5);
+  box-shadow: 0 6px 24px rgba(156, 39, 176, 0.3);
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+  .contact-buttons {
+    bottom: 24px;
+    right: 24px;
+    gap: 10px;
+  }
+  
+  .cb-toggle {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .cb-item {
+    padding: 10px 16px 10px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  .contact-buttons {
+    bottom: 20px;
+    right: 20px;
+    gap: 8px;
+  }
+  
+  .cb-toggle {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .cb-item {
+    padding: 8px 14px 8px 12px;
+    font-size: 12px;
+    gap: 10px;
+  }
+  
+  .cb-item svg {
+    width: 18px;
+    height: 18px;
+  }
+}

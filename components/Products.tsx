@@ -128,7 +128,7 @@ export default async function Products() {
                 )}
 
                 <a
-                  href={`/products/${product.attributes?.slug || product.id}`}
+                  href={product.attributes?.ctaLink || `/products/${product.attributes?.slug || product.id}`}
                   className="inline-flex items-center gap-2 text-[#4a90e2] font-semibold text-sm hover:gap-3 transition-all"
                 >
                   Xem chi tiết

@@ -1,0 +1,300 @@
+/*
+ * MOBILE RESPONSIVE
+ * Yihuixuan Project - Mobile Styles (max-width: 768px)
+ */
+
+@media (max-width: 1024px) {
+  /* ═══════════════════════════════════
+     HIDE DESKTOP-ONLY ELEMENTS
+  ═══════════════════════════════════ */
+  .desktop-only {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* ═══════════════════════════════════
+     NAVBAR MOBILE
+  ═══════════════════════════════════ */
+  #navbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+  
+  .logo {
+    font-size: 20px;
+  }
+  
+  .nav-links {
+    display: none !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+  
+  /* ═══════════════════════════════════
+     HERO MOBILE
+  ═══════════════════════════════════ */
+  .hero-section {
+    padding: 80px 20px 40px;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-btn {
+    width: 100%;
+  }
+  
+  /* ═══════════════════════════════════
+     SPLIT SCREEN MOBILE
+  ═══════════════════════════════════ */
+  .split-screen {
+    flex-direction: column;
+  }
+  
+  .split-left,
+  .split-right {
+    width: 100%;
+  }
+  
+  .split-left {
+    padding: 80px 20px 40px;
+  }
+  
+  .split-title {
+    font-size: 32px;
+  }
+  
+  .split-right {
+    min-height: 400px;
+  }
+  
+  /* ═══════════════════════════════════
+     PRODUCT DETAIL MOBILE
+  ═══════════════════════════════════ */
+  .pd-section {
+    padding: 60px 20px;
+  }
+  
+  .pd-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .pd-container.pd-reverse {
+    direction: ltr;
+  }
+  
+  .pd-title {
+    font-size: 28px;
+  }
+  
+  .pd-num {
+    font-size: 36px;
+  }
+  
+  .pd-desc {
+    font-size: 15px;
+  }
+  
+  .pd-section-box {
+    padding: 20px;
+  }
+  
+  .pd-cta-btn {
+    width: 100%;
+  }
+  
+  .pd-masonry-side {
+    position: relative;
+    top: 0;
+  }
+  
+  .masonry-desktop {
+    display: none !important;
+  }
+  
+  .masonry-mobile {
+    display: block !important;
+  }
+  
+  .masonry-item-single {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .masonry-item-single img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .masonry-single-video {
+    height: 300px;
+  }
+  
+  /* ═══════════════════════════════════
+     INDUSTRIES MOBILE
+  ═══════════════════════════════════ */
+  #s8 {
+    padding: 60px 20px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+  
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .industry-card {
+    padding: 24px 16px;
+  }
+  
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  /* ═══════════════════════════════════
+     TESTIMONIALS MOBILE
+  ═══════════════════════════════════ */
+  #s9 {
+    padding: 60px 20px;
+  }
+  
+  .testimonial-card {
+    padding: 40px 24px;
+  }
+  
+  .testimonial-quote {
+    font-size: 18px;
+  }
+  
+  .cta-block {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+  
+  .cta-text h2 {
+    font-size: 24px;
+  }
+  
+  .cta-button {
+    width: 100%;
+  }
+  
+  /* ═══════════════════════════════════
+     CONTACT MOBILE
+  ═══════════════════════════════════ */
+  #s10 {
+    padding: 60px 20px 40px;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .contact-info h2 {
+    font-size: 32px;
+  }
+  
+  .contact-form {
+    padding: 24px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  /* ═══════════════════════════════════
+     FOOTER MOBILE
+  ═══════════════════════════════════ */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* ═══════════════════════════════════
+     UTILITIES MOBILE
+  ═══════════════════════════════════ */
+  #scrollTop {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .zalo-chat {
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* ═══════════════════════════════════
+   SMALL MOBILE (max-width: 480px)
+═══════════════════════════════════ */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  
+  .split-title {
+    font-size: 28px;
+  }
+  
+  .pd-title {
+    font-size: 24px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info h2 {
+    font-size: 28px;
+  }
+  
+  .testimonial-quote {
+    font-size: 16px;
+  }
+  
+  .cta-text h2 {
+    font-size: 20px;
+  }
+}
+

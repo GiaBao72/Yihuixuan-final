@@ -1,5 +1,5 @@
 import HomeClient from './HomeClient';
-import { getStrapiImageUrl, getStrapiGalleryItems } from '@/lib/strapi-api';
+import { getStrapiImageUrl } from '@/lib/strapi-api';
 
 const STRAPI_URL = process.env.STRAPI_INTERNAL_URL || process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
@@ -14,9 +14,8 @@ const placeholderImages = [
 async function fetchProductDetailsByLocale(locale: string) {
   try {
     // Fetch products with order >= 100 (homepage ProductDetail sections)
-    // Explicitly populate gallery to get all images
     const response = await fetch(
-      `${STRAPI_URL}/api/products?locale=${locale}&filters[order][$gte]=100&sort=order:asc&populate=deep`,
+      `${STRAPI_URL}/api/products?locale=${locale}&filters[order][$gte]=100&sort=order:asc&populate=*`,
       { next: { revalidate: 60 } }
     );
     
@@ -55,11 +54,10 @@ export default async function Home() {
     
     if (p.attributes.gallery?.data && p.attributes.gallery.data.length > 0) {
       // Use Strapi gallery
-      const galleryItems = getStrapiGalleryItems(p.attributes.gallery);
-      gallery = galleryItems.map(img => ({
+      gallery = p.attributes.gallery.data.map((img: any) => ({
         type: 'image',
-        url: img.url,
-        thumb: img.url
+        url: getStrapiImageUrl(img),
+        thumb: getStrapiImageUrl(img)
       }));
     } else {
       // Fallback to main media + placeholders
@@ -111,11 +109,10 @@ export default async function Home() {
     let gallery = [];
     
     if (p.attributes.gallery?.data && p.attributes.gallery.data.length > 0) {
-      const galleryItems = getStrapiGalleryItems(p.attributes.gallery);
-      gallery = galleryItems.map(img => ({
+      gallery = p.attributes.gallery.data.map((img: any) => ({
         type: 'image',
-        url: img.url,
-        thumb: img.url
+        url: getStrapiImageUrl(img),
+        thumb: getStrapiImageUrl(img)
       }));
     } else {
       gallery = [
@@ -166,11 +163,10 @@ export default async function Home() {
     let gallery = [];
     
     if (p.attributes.gallery?.data && p.attributes.gallery.data.length > 0) {
-      const galleryItems = getStrapiGalleryItems(p.attributes.gallery);
-      gallery = galleryItems.map(img => ({
+      gallery = p.attributes.gallery.data.map((img: any) => ({
         type: 'image',
-        url: img.url,
-        thumb: img.url
+        url: getStrapiImageUrl(img),
+        thumb: getStrapiImageUrl(img)
       }));
     } else {
       gallery = [
@@ -188,10 +184,8 @@ export default async function Home() {
     }
     
     return {
-      id: `sp${idx + 1}`,
-      num: String(idx + 1).padStart(2, '0'),
-      label: p.attributes.category || '',
-      title: p.attributes.name.replace(/ Laser$/, '').replace(/ 激光$/, ''),
+      id: p.id,
+      title: p.attributes.name,
       titleEm: p.attributes.titleEm || 'Laser',
       description: p.attributes.shortDescription || '',
       features: [],

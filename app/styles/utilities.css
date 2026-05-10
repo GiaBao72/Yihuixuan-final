@@ -1,0 +1,138 @@
+/*
+ * UTILITIES
+ * Yihuixuan Project - Scroll Top, Zalo, Progress Dots
+ */
+
+/* ═══════════════════════════════════
+   SCROLL TO TOP BUTTON
+═══════════════════════════════════ */
+#scrollTop {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 46px;
+  height: 46px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 400;
+  box-shadow: 0 4px 16px rgba(27, 95, 212, 0.3);
+}
+
+#scrollTop.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#scrollTop:hover {
+  background: #1348b0;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(27, 95, 212, 0.4);
+}
+
+#scrollTop svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+
+/* ═══════════════════════════════════
+   ZALO CHAT BUTTON
+═══════════════════════════════════ */
+.zalo-chat {
+  position: fixed;
+  bottom: 90px;
+  right: 32px;
+  width: 56px;
+  height: 56px;
+  background: #0068ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 400;
+  box-shadow: 0 4px 16px rgba(0, 104, 255, 0.3);
+}
+
+.zalo-chat:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 104, 255, 0.4);
+}
+
+.zalo-chat img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ═══════════════════════════════════
+   PROGRESS DOTS (Desktop Only)
+═══════════════════════════════════ */
+.progress-dots {
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 300;
+}
+
+/* Hide on mobile and tablet */
+@media (max-width: 1024px) {
+  .progress-dots {
+    display: none;
+  }
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.progress-dot::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(2, 11, 26, 0.95);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.progress-dot:hover::after {
+  opacity: 1;
+  visibility: visible;
+  right: 28px;
+}
+
+.progress-dot.active {
+  background: var(--color-primary);
+  transform: scale(1.3);
+}
+
+.progress-dot:hover {
+  background: var(--color-secondary);
+}
+

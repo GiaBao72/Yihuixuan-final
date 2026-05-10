@@ -1,0 +1,307 @@
+/*
+ * INDUSTRIES & WHY CHOOSE US SECTION
+ * Yihuixuan Project - Đồng bộ với tổng thể website
+ */
+
+#s8 {
+  background: linear-gradient(135deg, #020b1a 0%, #0a1628 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid background effect */
+#s8 .grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(27, 95, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 95, 212, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Orb effect */
+#s8 .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+#s8 .orb1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(27, 95, 212, 0.4), transparent);
+  top: -100px;
+  right: -100px;
+}
+
+/* Main layout */
+.s8-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Section labels */
+.sec-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 16px;
+}
+
+/* Section titles */
+.sec-title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.sec-title em {
+  font-style: italic;
+  font-weight: 800;
+  color: #1b5fd4;
+  display: inline-block;
+}
+
+/* Industries Grid */
+.ind-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.ind-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.ind-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(27, 95, 212, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(27, 95, 212, 0.15);
+}
+
+.ind-icon-wrap {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(27, 95, 212, 0.1);
+  border-radius: 12px;
+  color: #1b5fd4;
+  transition: all 0.3s ease;
+}
+
+.ind-item:hover .ind-icon-wrap {
+  background: rgba(27, 95, 212, 0.2);
+  transform: scale(1.1);
+}
+
+.ind-item h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Why Choose Us Grid */
+.why-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.why-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 20px 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(27, 95, 212, 0.3);
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(27, 95, 212, 0.1);
+}
+
+.why-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: rgba(27, 95, 212, 0.4);
+  line-height: 1;
+  min-width: 48px;
+  flex-shrink: 0;
+}
+
+.why-content {
+  flex: 1;
+}
+
+.why-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.why-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Animation classes */
+.anim {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.anim:nth-child(1) { animation-delay: 0.1s; }
+.anim:nth-child(2) { animation-delay: 0.2s; }
+.anim:nth-child(3) { animation-delay: 0.3s; }
+.anim:nth-child(4) { animation-delay: 0.4s; }
+.anim:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .s8-grid {
+    gap: 60px;
+  }
+  
+  .sec-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 968px) {
+  .s8-grid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+  
+  .ind-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  #s8 {
+    padding: 60px 20px;
+  }
+  
+  .sec-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  
+  .ind-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .why-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+  
+  .why-num {
+    font-size: 24px;
+    min-width: auto;
+  }
+  
+  .why-title {
+    font-size: 14px;
+  }
+  
+  .why-desc {
+    font-size: 12px;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  #s8 {
+    padding: 50px 16px;
+  }
+  
+  .sec-label {
+    font-size: 11px;
+  }
+  
+  .sec-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .ind-item {
+    padding: 16px;
+  }
+  
+  .ind-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .ind-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .ind-title {
+    font-size: 13px;
+  }
+  
+  .why-card {
+    padding: 14px 16px;
+  }
+  
+  .why-num {
+    font-size: 20px;
+  }
+  
+  .why-title {
+    font-size: 13px;
+  }
+  
+  .why-desc {
+    font-size: 11px;
+  }
+}

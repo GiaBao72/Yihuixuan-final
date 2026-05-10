@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Products - Yihuixuan</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #020b1a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(160deg, #020b1a 0%, #031430 60%, #05225a 100%);
+      z-index: 0;
+    }
+    .bg-mesh::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(27, 95, 212, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(74, 144, 226, 0.08) 0%, transparent 50%);
+      animation: meshMove 20s ease-in-out infinite;
+    }
+    @keyframes meshMove {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(5%, 5%); }
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+    .product-section {
+      margin-bottom: 200px;
+      opacity: 0;
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .product-section:nth-child(1) { animation-delay: 0.1s; }
+    .product-section:nth-child(2) { animation-delay: 0.2s; }
+    .product-section:nth-child(3) { animation-delay: 0.3s; }
+    .product-section:nth-child(4) { animation-delay: 0.4s; }
+    .product-section:nth-child(5) { animation-delay: 0.5s; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .badge-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .number-badge {
+      font-size: 72px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #1b5fd4 0%, #4a90e2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neonPulse 3s ease-in-out infinite;
+    }
+    @keyframes neonPulse {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(27, 95, 212, 0.5)); }
+      50% { filter: drop-shadow(0 0 40px rgba(74, 144, 226, 0.8)); }
+    }
+    .label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #4a90e2;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .title {
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .title em {
+      background: linear-gradient(135deg, #1b5fd4 0%, #4a90e2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: normal;
+    }
+    .description {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 32px;
+    }
+    .info-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #4a90e2;
+      margin-bottom: 16px;
+    }
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card-list li {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.8);
+      padding-left: 24px;
+      position: relative;
+    }
+    .card-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #4a90e2;
+    }
+    .cta-button {
+      display: inline-flex;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #1b5fd4 0%, #4a90e2 100%);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 32px rgba(27, 95, 212, 0.3);
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 48px rgba(27, 95, 212, 0.5);
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* LAYOUT 1: Bento Grid */
+    .layout-bento {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+    }
+    .layout-bento .gallery-side {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 150px);
+      gap: 16px;
+    }
+    .layout-bento .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .layout-bento .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+    .layout-bento .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+    .layout-bento .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 2; }
+    .layout-bento .gallery-item:nth-child(5) { grid-column: span 2; grid-row: span 2; }
+
+    /* LAYOUT 2: Zigzag (Text-Image-Text-Image) */
+    .layout-zigzag {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .layout-zigzag .text-side {
+      grid-column: 1;
+    }
+    .layout-zigzag .gallery-side {
+      grid-column: 2;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .layout-zigzag .gallery-item:nth-child(1) { grid-column: span 2; height: 300px; }
+    .layout-zigzag .gallery-item:nth-child(2),
+    .layout-zigzag .gallery-item:nth-child(3) { height: 200px; }
+    .layout-zigzag .gallery-item:nth-child(4),
+    .layout-zigzag .gallery-item:nth-child(5) { height: 180px; }
+
+    /* LAYOUT 3: Vertical Split (50-50) */
+    .layout-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .layout-split .gallery-side {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .layout-split .gallery-item:nth-child(1) { height: 350px; }
+    .layout-split .gallery-item:nth-child(2) { height: 200px; }
+    .layout-split .gallery-item:nth-child(3) { height: 250px; }
+    .layout-split .gallery-item:nth-child(4) { height: 180px; }
+    .layout-split .gallery-item:nth-child(5) { height: 220px; }
+
+    /* LAYOUT 4: Card Grid (Text trên, Gallery grid dưới) */
+    .layout-card {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .layout-card .text-side {
+      max-width: 800px;
+    }
+    .layout-card .gallery-side {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .layout-card .gallery-item {
+      height: 280px;
+    }
+    .layout-card .gallery-item:nth-child(1) {
+      grid-column: span 2;
+      height: 400px;
+    }
+
+    /* LAYOUT 5: Masonry (Pinterest style) */
+    .layout-masonry {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+    }
+    .layout-masonry .gallery-side {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      grid-auto-rows: 120px;
+    }
+    .layout-masonry .gallery-item:nth-child(1) { grid-row: span 3; }
+    .layout-masonry .gallery-item:nth-child(2) { grid-row: span 2; }
+    .layout-masonry .gallery-item:nth-child(3) { grid-row: span 2; }
+    .layout-masonry .gallery-item:nth-child(4) { grid-row: span 3; }
+    .layout-masonry .gallery-item:nth-child(5) { grid-column: span 2; grid-row: span 2; }
+
+    @media (max-width: 1024px) {
+      .layout-bento,
+      .layout-zigzag,
+      .layout-split,
+      .layout-masonry {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .title { font-size: 42px; }
+      .number-badge { font-size: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="container">
+
+    <!-- PRODUCT 1: Bento Grid -->
+    <div class="product-section layout-bento">
+      <div class="text-side">
+        <div class="badge-wrapper">
+          <div class="number-badge">01</div>
+          <div class="label">Marking Series</div>
+        </div>
+        <h2 class="title">Máy Đánh Dấu <em>Laser</em></h2>
+        <p class="description">
+          Công nghệ laser tiên tiến cho khắc dấu chính xác cao trên mọi vật liệu. 
+          Tốc độ nhanh, độ bền vượt trội, phù hợp sản xuất công nghiệp quy mô lớn.
+        </p>
+        <div class="info-card">
+          <div class="card-title">⚙️ Thông số kỹ thuật</div>
+          <ul class="card-list">
+            <li>Laser UV 355nm — khắc lạnh, không biến màu nhựa</li>
+            <li>Laser CO2 — bao bì, thủy tinh, gỗ, vải</li>
+            <li>Laser Fiber 1064nm — kim loại, hợp kim, nhựa cứng</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button">Xem chi tiết →</a>
+      </div>
+      <div class="gallery-side">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Laser 1"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400" alt="Laser 2"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400" alt="Laser 3"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=400" alt="Laser 4"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800" alt="Laser 5"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2: Zigzag -->
+    <div class="product-section layout-zigzag">
+      <div class="text-side">
+        <div class="badge-wrapper">
+          <div class="number-badge">02</div>
+          <div class="label">Cutting Series</div>
+        </div>
+        <h2 class="title">Máy Cắt <em>Laser</em></h2>
+        <p class="description">
+          Cắt chính xác tuyệt đối với tia laser công suất cao. Phù hợp kim loại tấm, 
+          ống, mica, gỗ. Tốc độ cắt nhanh, mép cắt mịn, không cần gia công sau.
+        </p>
+        <div class="info-card">
+          <div class="card-title">✨ Ưu điểm</div>
+          <ul class="card-list">
+            <li>Cắt thép không gỉ 0.5-20mm, nhôm 0.5-12mm</li>
+            <li>Tốc độ 40m/phút, độ chính xác ±0.05mm</li>
+            <li>Hệ thống làm mát tự động, bảo vệ quá nhiệt</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button">Xem chi tiết →</a>
+      </div>
+      <div class="gallery-side">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=800" alt="Cutting 1"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400" alt="Cutting 2"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400" alt="Cutting 3"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400" alt="Cutting 4"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=400" alt="Cutting 5"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3: Vertical Split -->
+    <div class="product-section layout-split">
+      <div class="text-side">
+        <div class="badge-wrapper">
+          <div class="number-badge">03</div>
+          <div class="label">Welding Series</div>
+        </div>
+        <h2 class="title">Máy Hàn <em>Laser</em></h2>
+        <p class="description">
+          Hàn laser không tiếp xúc, vùng ảnh hưởng nhiệt nhỏ, độ bền mối hàn cao. 
+          Phù hợp hàn kim loại mỏng, pin lithium, linh kiện điện tử.
+        </p>
+        <div class="info-card">
+          <div class="card-title">🔧 Ứng dụng</div>
+          <ul class="card-list">
+            <li>Hàn pin lithium, vỏ điện thoại, khung laptop</li>
+            <li>Hàn trang sức vàng bạc, đồng hồ cao cấp</li>
+            <li>Hàn ống thép không gỉ, bình áp lực</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button">Xem chi tiết →</a>
+      </div>
+      <div class="gallery-side">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600" alt="Welding 1"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600" alt="Welding 2"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" alt="Welding 3"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=600" alt="Welding 4"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600" alt="Welding 5"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 4: Card Grid -->
+    <div class="product-section layout-card">
+      <div class="text-side">
+        <div class="badge-wrapper">
+          <div class="number-badge">04</div>
+          <div class="label">Cleaning Series</div>
+        </div>
+        <h2 class="title">Máy Làm Sạch <em>Laser</em></h2>
+        <p class="description">
+          Công nghệ làm sạch bề mặt không hóa chất, không mài mòn. Loại bỏ gỉ sét, 
+          sơn cũ, dầu mỡ trên kim loại. Thân thiện môi trường, tiết kiệm chi phí.
+        </p>
+        <div class="info-card">
+          <div class="card-title">🌱 Lợi ích</div>
+          <ul class="card-list">
+            <li>Không hóa chất độc hại, không bụi, không tiếng ồn</li>
+            <li>Làm sạch chọn lọc, không hại lớp nền</li>
+            <li>Tiết kiệm 80% chi phí so với phương pháp truyền thống</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button">Xem chi tiết →</a>
+      </div>
+      <div class="gallery-side">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Cleaning 1"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400" alt="Cleaning 2"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400" alt="Cleaning 3"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=400" alt="Cleaning 4"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400" alt="Cleaning 5"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 5: Masonry -->
+    <div class="product-section layout-masonry">
+      <div class="text-side">
+        <div class="badge-wrapper">
+          <div class="number-badge">05</div>
+          <div class="label">Automation Series</div>
+        </div>
+        <h2 class="title">Hệ Thống <em>Tự Động Hóa</em></h2>
+        <p class="description">
+          Giải pháp tự động hóa toàn diện cho dây chuyền sản xuất. Tích hợp robot, 
+          PLC, cảm biến thông minh. Tăng năng suất 500%, giảm lỗi 95%.
+        </p>
+        <div class="info-card">
+          <div class="card-title">🤖 Tính năng</div>
+          <ul class="card-list">
+            <li>Robot 6 trục, tải trọng 3-50kg, độ lặp lại ±0.02mm</li>
+            <li>Vision AI nhận diện sản phẩm, kiểm tra chất lượng</li>
+            <li>MES/ERP tích hợp, giám sát real-time 24/7</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button">Xem chi tiết →</a>
+      </div>
+      <div class="gallery-side">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600" alt="Auto 1"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600" alt="Auto 2"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" alt="Auto 3"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=600" alt="Auto 4"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800" alt="Auto 5"></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

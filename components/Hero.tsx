@@ -1,42 +1,105 @@
-export default function Hero() {
+'use client';
+
+import { useLang } from '@/lib/useLang';
+import '@/app/styles/hero.css';
+
+interface HeroProps {
+  scrollToSection: (index: number) => void;
+}
+
+export default function Hero({ scrollToSection }: HeroProps) {
+  const { lang, t } = useLang();
+  
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="grid-bg"></div>
-      <div className="orb orb1"></div>
-      <div className="orb orb2"></div>
+    <section className="fp-slide" id="s0" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          minWidth: '100%',
+          minHeight: '100%',
+          width: 'auto',
+          height: 'auto',
+          transform: 'translate(-50%, -50%)',
+          objectFit: 'cover',
+          zIndex: 0,
+        }}
+      >
+        <source src="/hero-laser.mp4" type="video/mp4" />
+      </video>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-full px-5 py-2 mb-8 anim">
-          <span className="w-2 h-2 bg-[#4a90e2] rounded-full animate-pulse"></span>
-          <span className="text-sm text-[rgba(255,255,255,0.7)]">Tập trung vào tùy chỉnh laser · Phục vụ bằng cả trái tim</span>
-        </div>
+      {/* Dark overlay for text readability */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(to bottom, rgba(2,11,26,0.75) 0%, rgba(3,20,48,0.85) 50%, rgba(5,34,90,0.9) 100%)',
+        zIndex: 1,
+      }} />
 
-        <h1 className="text-6xl md:text-7xl font-extrabold leading-tight mb-6 anim">
-          Thiết bị <em className="not-italic text-[#4a90e2]">Laser</em>
-          <br />
-          Công nghiệp
-          <br />
-          chính xác tuyệt đối
+      {/* Content */}
+      <div className="slide-inner" style={{ 
+        position: 'relative', 
+        zIndex: 2, 
+        textAlign: 'center', 
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '24px',
+      }}>
+        {/* Company name - large */}
+        <h1 style={{
+          fontSize: 'clamp(32px, 5vw, 64px)',
+          fontWeight: 900,
+          lineHeight: 1.1,
+          color: '#fff',
+          textShadow: '0 4px 20px rgba(0,0,0,0.5)',
+          marginBottom: '8px',
+          letterSpacing: '-0.02em',
+        }}>
+          {t.hero_company_name}
         </h1>
 
-        <p className="text-xl text-[rgba(255,255,255,0.6)] max-w-3xl mx-auto mb-10 anim">
-          Suzhou Borna & Vietnam Yihuixuan (Nghệ Huy Hiên) — cung cấp thiết bị laser công nghiệp, tự động hóa và giải pháp xử lý quy trình hoàn chỉnh cho nhà máy hiện đại tại Việt Nam
+        {/* Company name Chinese - medium */}
+        <p style={{
+          fontSize: 'clamp(18px, 2.5vw, 32px)',
+          fontWeight: 600,
+          color: 'rgba(255,255,255,0.9)',
+          textShadow: '0 2px 12px rgba(0,0,0,0.4)',
+          marginBottom: '16px',
+          letterSpacing: '0.05em',
+        }}>
+          {t.hero_company_name_zh}
         </p>
 
-        <div className="flex flex-wrap gap-4 justify-center anim">
-          <a
-            href="#products"
-            className="bg-[#1b5fd4] text-white px-8 py-4 rounded-lg text-base font-semibold hover:bg-[#1348b0] hover:-translate-y-1 transition-all shadow-lg shadow-[rgba(27,95,212,0.3)]"
-          >
-            Khám phá sản phẩm →
-          </a>
-          <a
-            href="#contact"
-            className="bg-transparent border-2 border-[rgba(255,255,255,0.2)] text-white px-8 py-4 rounded-lg text-base font-semibold hover:border-[rgba(255,255,255,0.4)] hover:bg-[rgba(255,255,255,0.05)] transition-all"
-          >
-            Liên hệ tư vấn
-          </a>
-        </div>
+        {/* Tagline */}
+        <p style={{
+          fontSize: 'clamp(16px, 2vw, 24px)',
+          fontWeight: 500,
+          color: '#4a90e2',
+          textShadow: '0 2px 8px rgba(0,0,0,0.6)',
+          marginBottom: '12px',
+          letterSpacing: '0.02em',
+        }}>
+          {t.hero_tagline}
+        </p>
+
+        {/* Slogan */}
+        <p style={{
+          fontSize: 'clamp(14px, 1.8vw, 20px)',
+          fontWeight: 600,
+          color: 'rgba(255,255,255,0.95)',
+          textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+          letterSpacing: '0.1em',
+        }}>
+          {t.hero_slogan}
+        </p>
       </div>
     </section>
   );

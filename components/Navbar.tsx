@@ -2,85 +2,190 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getLang, setLang, translations, type Lang } from '@/lib/translations';
+import '@/app/styles/navbar.css';
 
 export default function Navbar() {
-  const [solid, setSolid] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lang, setLangState] = useState<Lang>('vi');
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setSolid(window.scrollY > 50);
+    setLangState(getLang());
+    
+    // Listen for language changes
+    const handleLangChange = () => {
+      setLangState(getLang());
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    window.addEventListener('langchange', handleLangChange);
+    return () => window.removeEventListener('langchange', handleLangChange);
   }, []);
+
+  const languages = [
+    { code: 'vi' as Lang, flag: '🇻🇳', name: 'Tiếng Việt' },
+    { code: 'zh' as Lang, flag: '🇨🇳', name: '中文' },
+    { code: 'en' as Lang, flag: '🇬🇧', name: 'English' },
+  ];
+
+  const currentLang = languages.find(l => l.code === lang) || languages[0];
+
+  const handleLangChange = (newLang: Lang) => {
+    setLang(newLang);
+    setIsLangDropdownOpen(false);
+  };
+  
+  const t = translations[lang];
 
   return (
     <>
-      <nav
-        id="navbar"
-        className={`fixed top-0 left-0 right-0 z-[500] px-[60px] h-[68px] flex items-center justify-between transition-all duration-400 ${
-          solid ? 'bg-[rgba(2,11,26,0.95)] backdrop-blur-[16px] border-b border-[rgba(255,255,255,0.07)]' : 'border-b border-transparent'
-        }`}
-      >
-        <Link href="/" className="text-2xl font-extrabold tracking-wide">
-          YIHUIXUAN<em className="not-italic text-[#4a90e2]">LASER</em>
+      <nav id="navbar" className={isMenuOpen ? 'menu-open' : ''}>
+        <Link href="/" className="logo">
+          BORNA<em>LASER</em>
         </Link>
-
-        <div className="hidden md:flex gap-9 items-center">
-          <a href="#hero" className="text-[13px] font-medium text-[rgba(255,255,255,0.7)] tracking-wide hover:text-white transition-colors">
-            Trang chủ
-          </a>
-          <a href="#products" className="text-[13px] font-medium text-[rgba(255,255,255,0.7)] tracking-wide hover:text-white transition-colors">
-            Sản phẩm
-          </a>
-          <a href="#about" className="text-[13px] font-medium text-[rgba(255,255,255,0.7)] tracking-wide hover:text-white transition-colors">
-            Về chúng tôi
-          </a>
-          <a href="#industries" className="text-[13px] font-medium text-[rgba(255,255,255,0.7)] tracking-wide hover:text-white transition-colors">
-            Ngành ứng dụng
-          </a>
-          <a href="#contact" className="bg-[#1b5fd4] text-white px-[22px] py-2 rounded-full text-[13px] font-semibold hover:bg-[#1348b0] hover:-translate-y-[1px] transition-all">
-            Liên hệ →
-          </a>
+        
+        <div className="nav-links">
+          <Link href="/">{t.nav_home}</Link>
+          <Link href="/products">{t.nav_products}</Link>
+          <Link href="/about">{t.nav_about}</Link>
+          
+          {/* Language Dropdown */}
+          <div className="lang-dropdown-wrapper">
+            <button 
+              className="lang-toggle" 
+              onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
+              title="Switch Language"
+            >
+              {currentLang.flag} {currentLang.name}
+            </button>
+            
+            {isLangDropdownOpen && (
+              <div className="lang-dropdown">
+                {languages.map(l => (
+                  <button
+                    key={l.code}
+                    className={`lang-option ${l.code === lang ? 'active' : ''}`}
+                    onClick={() => handleLangChange(l.code)}
+                  >
+                    {l.flag} {l.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          
+          <Link href="/#contact" className="nav-cta">
+            {t.nav_contact} →
+          </Link>
         </div>
 
-        <button
-          className="md:hidden flex flex-col gap-1.5"
-          onClick={() => setMobileOpen(!mobileOpen)}
+        <div 
+          className="hamburger" 
+          id="hamBtn"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <span className="w-6 h-0.5 bg-white"></span>
-          <span className="w-6 h-0.5 bg-white"></span>
-          <span className="w-6 h-0.5 bg-white"></span>
-        </button>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="fixed inset-0 z-[600] bg-[#020b1a] flex flex-col items-center justify-center gap-6">
-          <button
-            className="absolute top-6 right-6 text-3xl text-white"
-            onClick={() => setMobileOpen(false)}
-          >
-            ✕
-          </button>
-          <a href="#hero" className="text-xl font-medium" onClick={() => setMobileOpen(false)}>
-            Trang chủ
-          </a>
-          <a href="#products" className="text-xl font-medium" onClick={() => setMobileOpen(false)}>
-            Sản phẩm
-          </a>
-          <a href="#about" className="text-xl font-medium" onClick={() => setMobileOpen(false)}>
-            Về chúng tôi
-          </a>
-          <a href="#industries" className="text-xl font-medium" onClick={() => setMobileOpen(false)}>
-            Ngành ứng dụng
-          </a>
-          <a href="#contact" className="text-xl font-medium" onClick={() => setMobileOpen(false)}>
-            Liên hệ
-          </a>
+      <div className={`mob-menu ${isMenuOpen ? 'active' : ''}`} id="mobMenu">
+        <div className="mob-close" onClick={() => setIsMenuOpen(false)}>✕</div>
+        <Link href="/" onClick={() => setIsMenuOpen(false)} className="mob-nav-link">{t.nav_home}</Link>
+        <Link href="/products" onClick={() => setIsMenuOpen(false)} className="mob-nav-link">{t.nav_products}</Link>
+        <Link href="/about" onClick={() => setIsMenuOpen(false)} className="mob-nav-link">{t.nav_about}</Link>
+        
+        {/* Mobile Language Selector */}
+        <div className="mob-lang-selector">
+          {languages.map(l => (
+            <button
+              key={l.code}
+              className={`mob-lang-option ${l.code === lang ? 'active' : ''}`}
+              onClick={() => {
+                handleLangChange(l.code);
+                setIsMenuOpen(false);
+              }}
+            >
+              {l.flag} {l.name}
+            </button>
+          ))}
         </div>
-      )}
+      </div>
+      
+      <style jsx>{`
+        .lang-dropdown-wrapper {
+          position: relative;
+        }
+        
+        .lang-dropdown {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          margin-top: 8px;
+          background: rgba(10, 14, 39, 0.98);
+          border: 1px solid rgba(74, 144, 226, 0.3);
+          border-radius: 8px;
+          padding: 8px;
+          min-width: 160px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+          z-index: 1000;
+        }
+        
+        .lang-option {
+          display: block;
+          width: 100%;
+          padding: 10px 16px;
+          background: transparent;
+          border: none;
+          color: #fff;
+          text-align: left;
+          cursor: pointer;
+          border-radius: 6px;
+          transition: all 0.2s;
+          font-size: 14px;
+        }
+        
+        .lang-option:hover {
+          background: rgba(74, 144, 226, 0.15);
+        }
+        
+        .lang-option.active {
+          background: rgba(74, 144, 226, 0.25);
+          color: #4a90e2;
+        }
+        
+        .mob-lang-selector {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding: 16px;
+          border-top: 1px solid rgba(74, 144, 226, 0.2);
+          margin-top: 16px;
+        }
+        
+        .mob-lang-option {
+          padding: 12px 16px;
+          background: rgba(10, 14, 39, 0.6);
+          border: 1px solid rgba(74, 144, 226, 0.3);
+          border-radius: 8px;
+          color: #fff;
+          cursor: pointer;
+          transition: all 0.2s;
+          font-size: 14px;
+        }
+        
+        .mob-lang-option:hover {
+          background: rgba(74, 144, 226, 0.15);
+        }
+        
+        .mob-lang-option.active {
+          background: rgba(74, 144, 226, 0.25);
+          border-color: #4a90e2;
+          color: #4a90e2;
+        }
+      `}</style>
     </>
   );
 }
