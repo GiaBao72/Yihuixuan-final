@@ -43,7 +43,7 @@ export default function ProductPage() {
         const localeToUse = lang === 'zh' ? 'zh' : lang === 'en' ? 'en' : 'vi';
         
         const res = await fetch(
-          `${strapiUrl}/api/products/${id}?populate[0]=mainImage&populate[1]=detailImage&populate[2]=gallery&populate[3]=localizations`
+          `${strapiUrl}/api/products/${id}?populate[0]=mainImage&populate[1]=detailImage&populate[2]=gallery&populate[3]=localizations&populate[4]=specs&populate[5]=applications`
         );
         
         if (!res.ok) {
@@ -113,19 +113,26 @@ export default function ProductPage() {
           order: attr.order || 0,
           isActive: attr.isActive !== false,
           category: attr.category || '',
+          specs: attr.specs || [],
+          applications: attr.applications || [],
           otherProducts: [],
         };
 
-        // Fetch other products in same locale
+        // Fetch other products in same locale (random)
         const productLocale = attr.locale;
         const otherResponse = await fetch(
-          `${strapiUrl}/api/products?locale=${productLocale}&populate=mainImage&sort=order:asc&pagination[pageSize]=6`
+          `${strapiUrl}/api/products?locale=${productLocale}&populate=mainImage&pagination[pageSize]=100`
         );
 
         if (otherResponse.ok) {
           const otherData = await otherResponse.json();
-          productObj.otherProducts = otherData.data
-            .filter((p: any) => p.id !== productData.id && p.attributes.isActive !== false)
+          const filteredProducts = otherData.data
+            .filter((p: any) => p.id !== productData.id && p.attributes.isActive !== false);
+          
+          // Shuffle array randomly
+          const shuffled = [...filteredProducts].sort(() => Math.random() - 0.5);
+          
+          productObj.otherProducts = shuffled
             .slice(0, 4)
             .map((p: any) => ({
               id: p.id,

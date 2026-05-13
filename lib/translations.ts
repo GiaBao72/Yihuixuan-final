@@ -7,8 +7,8 @@ export const translations = {
     nav_contact: 'Liên hệ',
     
     // Hero section
-    hero_company_name: 'Vietnam Yihuixuan Co., Ltd.',
-    hero_company_name_zh: 'Công ty TNHH Yi Hui Xuân Việt Nam',
+    hero_company_name: 'Công ty TNHH Nghệ Huy Hiên',
+    hero_company_name_zh: 'Vietnam Yihuixuan Co., Ltd.',
     hero_tagline: 'Nhà cung cấp thiết bị laser & thiết bị tự động hóa',
     hero_slogan: 'Chuyên nghiệp • Sáng tạo • Uy tín • Cùng thắng',
     hero_motto: 'Phục vụ khách hàng, luôn nhất quán',
@@ -167,8 +167,8 @@ export const translations = {
     nav_contact: '联系我们',
     
     // Hero section
-    hero_company_name: 'Suzhou Borna Intelligent Equipment Co., Ltd.',
-    hero_company_name_zh: '苏州博尔纳智能装备有限公司',
+    hero_company_name: "苏州博尔纳智能装备有限公司",
+    hero_company_name_zh: "越南怡辉轩有限公司",
     hero_tagline: '激光设备 自动化设备供应商',
     hero_slogan: '专业 • 创新 • 诚信 • 共赢',
     hero_motto: '服务客户，始终如一',
@@ -328,8 +328,8 @@ export const translations = {
     nav_contact: 'Contact',
     
     // Hero section
-    hero_company_name: 'Vietnam Yihuixuan Co., Ltd.',
-    hero_company_name_zh: 'Vietnam Yihuixuan Co., Ltd.',
+    hero_company_name: "Suzhou Borna Intelligent Equipment Co., Ltd.",
+    hero_company_name_zh: "Vietnam Yihuixuan Co., Ltd.",
     hero_tagline: 'Laser Equipment & Automation Solutions Provider',
     hero_slogan: 'Professional • Innovative • Reliable • Win-Win',
     hero_motto: 'Customer Service, Always Consistent',

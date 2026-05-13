@@ -1,0 +1,52 @@
+/*
+ * PRODUCTS SPLIT SCREEN
+ * Yihuixuan Project — Light Theme
+ */
+
+.split-screen {
+  display: flex;
+  width: 100%;
+}
+
+.split-left,
+.split-right {
+  flex: 1;
+}
+
+.split-title {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .split-screen {
+    flex-direction: column;
+  }
+
+  .split-left,
+  .split-right {
+    width: 100%;
+  }
+
+  .split-left {
+    padding: 80px 20px 40px;
+  }
+
+  .split-title {
+    font-size: 32px;
+  }
+
+  .split-right {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .split-title { font-size: 28px; }
+}
+
+@media (min-width: 1400px) {
+  .split-title { font-size: 56px; }
+}

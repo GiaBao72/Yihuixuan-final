@@ -1,3 +1,4 @@
+import '@/app/styles/products-split-screen.css';
 'use client';
 
 import { useState, useRef } from 'react';

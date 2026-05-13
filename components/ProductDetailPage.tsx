@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useLang } from '@/lib/useLang';
+import '@/app/styles/product-detail-page.css';
 
 interface Feature {
   id: number;
@@ -74,7 +75,7 @@ function extractSpecsFromHTML(html: string): Array<{key: string, value: string}>
 
 export default function ProductDetailPage({ product }: { product: Product }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState<'overview' | 'specs' | 'features' | 'applications'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'specs'>('overview');
   const { lang } = useLang();
 
   const galleryItems = product.gallery && product.gallery.length > 0 
@@ -83,7 +84,9 @@ export default function ProductDetailPage({ product }: { product: Product }) {
 
   const activeItem = galleryItems[activeIndex];
   const isVideo = 'mime' in activeItem && activeItem.mime?.startsWith('video/');
-  const specs = extractSpecsFromHTML(product.detailedContent || '');
+  const specs = Array.isArray(product.specs) && product.specs.length > 0
+    ? product.specs.map((s: any) => ({ key: s.label, value: s.value }))
+    : extractSpecsFromHTML(product.detailedContent || '');
 
   const translations = {
     vi: {
@@ -92,7 +95,6 @@ export default function ProductDetailPage({ product }: { product: Product }) {
       tab_overview: 'Tổng quan',
       tab_specs: 'Thông số kỹ thuật',
       tab_features: 'Tính năng',
-      tab_applications: 'Ứng dụng',
       cta_contact: 'Liên hệ tư vấn',
       cta_quote: 'Yêu cầu báo giá',
       related_title: 'Sản phẩm',
@@ -107,7 +109,6 @@ export default function ProductDetailPage({ product }: { product: Product }) {
       tab_overview: '概述',
       tab_specs: '技术规格',
       tab_features: '特点',
-      tab_applications: '应用',
       cta_contact: '联系咨询',
       cta_quote: '请求报价',
       related_title: '相关',
@@ -122,7 +123,6 @@ export default function ProductDetailPage({ product }: { product: Product }) {
       tab_overview: 'Overview',
       tab_specs: 'Specifications',
       tab_features: 'Features',
-      tab_applications: 'Applications',
       cta_contact: 'Contact Us',
       cta_quote: 'Request Quote',
       related_title: 'Related',
@@ -156,22 +156,24 @@ export default function ProductDetailPage({ product }: { product: Product }) {
             {/* Gallery (Left - Sticky) */}
             <div className="pdp-gallery">
               <div className="pdp-gallery-main">
-                {isVideo ? (
-                  <video
-                    src={activeItem.url}
-                    controls
-                    className="pdp-gallery-video"
-                  />
-                ) : (
-                  <Image
-                    src={activeItem.url}
-                    alt={activeItem.alternativeText || product.name}
-                    width={800}
-                    height={600}
-                    priority
-                    className="pdp-gallery-image"
-                  />
-                )}
+                <div className="pdp-gallery-image-wrapper">
+                  {isVideo ? (
+                    <video
+                      src={activeItem.url}
+                      controls
+                      className="pdp-gallery-video"
+                    />
+                  ) : (
+                    <Image
+                      src={activeItem.url}
+                      alt={activeItem.alternativeText || product.name}
+                      width={800}
+                      height={800}
+                      priority
+                      className="pdp-gallery-image"
+                    />
+                  )}
+                </div>
               </div>
               
               {galleryItems.length > 1 && (
@@ -206,11 +208,8 @@ export default function ProductDetailPage({ product }: { product: Product }) {
               <div className="pdp-description">{product.fullDescription}</div>
               
               <div className="pdp-cta-group">
-                <a href="#contact" className="pdp-cta-btn primary">
+                <a href="#s10" className="pdp-cta-btn primary">
                   {tr.cta_contact}
-                </a>
-                <a href="#contact" className="pdp-cta-btn secondary">
-                  {tr.cta_quote}
                 </a>
               </div>
             </div>
@@ -235,18 +234,6 @@ export default function ProductDetailPage({ product }: { product: Product }) {
               onClick={() => setActiveTab('specs')}
             >
               {tr.tab_specs}
-            </button>
-            <button
-              className={`pdp-tab-btn ${activeTab === 'features' ? 'active' : ''}`}
-              onClick={() => setActiveTab('features')}
-            >
-              {tr.tab_features}
-            </button>
-            <button
-              className={`pdp-tab-btn ${activeTab === 'applications' ? 'active' : ''}`}
-              onClick={() => setActiveTab('applications')}
-            >
-              {tr.tab_applications}
             </button>
           </div>
 
@@ -284,39 +271,6 @@ export default function ProductDetailPage({ product }: { product: Product }) {
                     {lang === 'vi' ? 'Chưa có thông số kỹ thuật' : lang === 'en' ? 'No specifications available' : '暂无技术规格'}
                   </p>
                 )}
-              </div>
-            )}
-
-            {/* Features Tab */}
-            {activeTab === 'features' && (
-              <div className="pdp-features-grid">
-                {product.features && product.features.length > 0 ? (
-                  product.features.map((feature) => (
-                    <div key={feature.id} className="pdp-feature-card">
-                      <div className="pdp-feature-icon">✨</div>
-                      <h3 className="pdp-feature-title">{feature.title}</h3>
-                      <p className="pdp-feature-desc">{feature.description}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p style={{ color: 'rgba(255,255,255,0.5)' }}>
-                    {lang === 'vi' ? 'Chưa có tính năng' : lang === 'en' ? 'No features available' : '暂无特点'}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {/* Applications Tab */}
-            {activeTab === 'applications' && (
-              <div className="pdp-applications">
-                <p>{lang === 'vi' ? 'Ứng dụng trong các lĩnh vực:' : lang === 'en' ? 'Applications in various fields:' : '应用领域：'}</p>
-                <ul>
-                  <li>{lang === 'vi' ? 'Công nghiệp điện tử' : lang === 'en' ? 'Electronics Industry' : '电子工业'}</li>
-                  <li>{lang === 'vi' ? 'Sản xuất ô tô' : lang === 'en' ? 'Automotive Manufacturing' : '汽车制造'}</li>
-                  <li>{lang === 'vi' ? 'Y tế và dược phẩm' : lang === 'en' ? 'Medical & Pharmaceutical' : '医疗和制药'}</li>
-                  <li>{lang === 'vi' ? 'Hàng không vũ trụ' : lang === 'en' ? 'Aerospace' : '航空航天'}</li>
-                  <li>{lang === 'vi' ? 'Đóng gói và bao bì' : lang === 'en' ? 'Packaging' : '包装'}</li>
-                </ul>
               </div>
             )}
           </div>

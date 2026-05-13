@@ -1,6 +1,6 @@
 /*
  * NAVBAR COMPONENT
- * Yihuixuan Project - Navigation Bar
+ * Yihuixuan Project — Light Theme
  */
 
 /* ═══════════════════════════════════
@@ -11,36 +11,39 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 500;
+  z-index: var(--z-nav);
   padding: 0 60px;
   height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.4s ease, border-color 0.4s ease;
+  transition: background var(--transition-slow), border-color var(--transition-slow), box-shadow var(--transition-slow);
   border-bottom: 1px solid transparent;
+  background: rgba(248, 250, 252, 0.85);
 }
 
 #navbar.solid {
-  background: rgba(2, 11, 26, 0.95);
+  background: rgba(248, 250, 252, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-color: rgba(255, 255, 255, 0.07);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ═══════════════════════════════════
    LOGO
 ═══════════════════════════════════ */
 .logo {
-  font-size: 24px;
+  font-family: var(--font-heading);
+  font-size: 22px;
   font-weight: 800;
-  letter-spacing: 1px;
-  color: #ffffff;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
 }
 
 .logo em {
   font-style: normal;
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 /* ═══════════════════════════════════
@@ -53,17 +56,18 @@
 }
 
 .nav-links a {
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.4px;
-  transition: color 0.2s ease;
+  color: var(--color-secondary);
+  letter-spacing: 0.3px;
+  transition: color var(--transition-fast);
   position: relative;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #ffffff;
+  color: var(--color-primary);
 }
 
 .nav-links a::after {
@@ -73,8 +77,8 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--color-primary);
-  transition: width 0.3s ease;
+  background: var(--color-accent);
+  transition: width var(--transition-base);
 }
 
 .nav-links a:hover::after,
@@ -86,22 +90,24 @@
    CTA BUTTON
 ═══════════════════════════════════ */
 .nav-cta {
-  background: var(--color-primary);
-  color: #ffffff !important;
+  background: var(--color-accent) !important;
+  color: var(--color-on-accent) !important;
   padding: 8px 22px;
-  border-radius: 40px;
+  border-radius: var(--radius-full);
   font-size: 13px;
   font-weight: 600;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--glow-accent);
 }
 
 .nav-cta:hover {
-  background: #1348b0;
+  background: var(--color-accent-hover) !important;
   transform: translateY(-1px);
+  box-shadow: var(--glow-accent-lg);
 }
 
 .nav-cta::after {
-  display: none;
+  display: none !important;
 }
 
 /* ═══════════════════════════════════
@@ -109,31 +115,58 @@
 ═══════════════════════════════════ */
 .lang-toggle {
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--color-border);
+  color: var(--color-secondary);
   font-size: 12px;
   font-weight: 600;
   padding: 5px 12px;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
   cursor: pointer;
   letter-spacing: 0.3px;
-  transition: all 0.2s ease;
-  font-family: 'Rubik', 'Nunito', sans-serif;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
 }
 
 .lang-toggle:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-  color: #ffffff;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: rgba(3, 105, 161, 0.06);
 }
 
 .lang-toggle.zh-active {
-  background: rgba(255, 193, 7, 0.15);
-  border-color: rgba(255, 193, 7, 0.5);
-  color: #ffc107;
+  background: rgba(217, 119, 6, 0.08);
+  border-color: rgba(217, 119, 6, 0.5);
+  color: var(--color-warning);
 }
 
 /* ═══════════════════════════════════
-   MOBILE MENU TOGGLE
+   HAMBURGER BUTTON
+═══════════════════════════════════ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  transition: all var(--transition-base);
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+.hamburger:hover span {
+  background: var(--color-accent);
+}
+
+/* ═══════════════════════════════════
+   MOBILE MENU TOGGLE (legacy)
 ═══════════════════════════════════ */
 .mobile-menu-toggle {
   display: none;
@@ -146,8 +179,8 @@
 .mobile-menu-toggle span {
   width: 24px;
   height: 2px;
-  background: #ffffff;
-  transition: all 0.3s ease;
+  background: var(--color-primary);
+  transition: all var(--transition-base);
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
@@ -163,22 +196,23 @@
 }
 
 /* ═══════════════════════════════════
-   MOBILE MENU
+   MOBILE MENU (legacy)
 ═══════════════════════════════════ */
 .mobile-menu {
   position: fixed;
   top: 68px;
   left: 0;
   right: 0;
-  background: rgba(2, 11, 26, 0.98);
+  background: rgba(248, 250, 252, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 24px;
   transform: translateY(-100%);
   opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform var(--transition-base), opacity var(--transition-base);
   z-index: 499;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
 }
 
 .mobile-menu.active {
@@ -196,12 +230,12 @@
   font-size: 16px;
   width: 100%;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-secondary);
 }
 
-
 /* ═══════════════════════════════════
-   MOB-MENU (Mobile Menu Alternative)
+   MOB-MENU
 ═══════════════════════════════════ */
 .mob-menu {
   display: none;
@@ -210,15 +244,16 @@
   left: 0;
   right: 0;
   width: 100vw;
-  background: rgba(2, 11, 26, 0.98);
+  background: rgba(248, 250, 252, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 24px;
   transform: translateY(-100%);
   opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform var(--transition-base), opacity var(--transition-base);
   z-index: 999;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
   flex-direction: column;
   gap: 12px;
   max-height: calc(100vh - 68px);
@@ -232,7 +267,6 @@
   visibility: visible !important;
 }
 
-/* Force show on mobile when active */
 @media (max-width: 768px) {
   .mob-menu.active {
     display: flex !important;
@@ -241,27 +275,27 @@
 
 .mob-close {
   font-size: 28px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-fg-muted);
   cursor: pointer;
   align-self: flex-end;
   padding: 8px;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
 .mob-close:hover {
-  color: #ffffff;
+  color: var(--color-primary);
 }
 
 .mob-nav-link {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-secondary);
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: color 0.2s ease;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast);
 }
 
 .mob-nav-link:hover {
-  color: #ffffff;
+  color: var(--color-primary);
 }
 
 .mob-lang-selector {
@@ -270,177 +304,99 @@
   gap: 8px;
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-border);
 }
 
 .mob-lang-option {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-secondary);
   padding: 10px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   font-size: 14px;
   text-align: left;
 }
 
 .mob-lang-option:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: var(--color-muted);
+  color: var(--color-primary);
 }
 
 .mob-lang-option.active {
-  background: rgba(21, 101, 192, 0.2);
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  background: rgba(3, 105, 161, 0.08);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 /* ═══════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════ */
-
-/* Tablet (1024px) */
-
-/* ═══════════════════════════════════
-   HAMBURGER MENU BUTTON
-═══════════════════════════════════ */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 1001;
-  transition: all 0.3s ease;
-}
-
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.hamburger:hover span {
-  background: var(--color-secondary);
-}
-
 @media (max-width: 1024px) {
   #navbar {
     padding: 0 40px;
   }
-  
+
   .nav-links {
     gap: 24px;
   }
-  
-  .nav-link {
-    font-size: 14px;
-  }
-  
-  .lang-switcher button {
-    padding: 6px 12px;
-    font-size: 13px;
-  }
 }
 
-/* Tablet portrait (768px) */
 @media (max-width: 768px) {
-  /* Show hamburger on tablet/mobile */
   .hamburger {
     display: flex !important;
   }
-  
+
   .nav-links,
   .nav-cta {
     display: none !important;
   }
-  
+
   #navbar {
     padding: 0 24px;
     height: 60px;
   }
-  
-  .logo {
-    font-size: 20px;
-  }
-  
-  .nav-links {
-    gap: 20px;
-  }
-  
-  .nav-link {
-    font-size: 13px;
-    padding: 6px 12px;
-  }
-  
-  .lang-switcher {
-    gap: 6px;
-  }
-  
-  .lang-switcher button {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-}
 
-/* Mobile (640px) - Hide nav links, show only logo and lang */
-@media (max-width: 640px) {
-  /* Show hamburger, hide desktop nav */
-  .hamburger {
-    display: flex !important;
-  }
-  
-  .nav-cta {
-    display: none !important;
-  }
-  
-  #navbar {
-    padding: 0 20px;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-  
   .logo {
     font-size: 18px;
   }
-  
-  .lang-switcher button {
-    padding: 6px 10px;
-    font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .hamburger {
+    display: flex !important;
+  }
+
+  .nav-cta {
+    display: none !important;
+  }
+
+  #navbar {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .logo {
+    font-size: 17px;
   }
 }
 
-/* Small mobile (480px) */
 @media (max-width: 480px) {
   #navbar {
     padding: 0 16px;
     height: 56px;
   }
-  
+
   .logo {
     font-size: 16px;
   }
-  
-  .lang-switcher {
-    gap: 4px;
-  }
-  
-  .lang-switcher button {
-    padding: 5px 8px;
-    font-size: 11px;
-  }
 }
 
-
-/* ═══════════════════════════════════
-   FORCE SHOW HAMBURGER ON MOBILE
-═══════════════════════════════════ */
+/* Force hamburger on mobile */
 @media (max-width: 768px) {
   nav#navbar .hamburger,
   #navbar .hamburger,
@@ -451,14 +407,14 @@
     position: relative !important;
     z-index: 9999 !important;
   }
-  
+
   nav#navbar .nav-links,
   nav#navbar .nav-cta,
   #navbar .nav-links,
   #navbar .nav-cta {
     display: none !important;
   }
-  
+
   nav#navbar .lang-dropdown-wrapper {
     display: none !important;
   }
@@ -474,4 +430,109 @@
     position: relative !important;
     z-index: 9999 !important;
   }
+}
+
+/* ═══════════════════════════════════
+   THEME TOGGLE BUTTON
+═══════════════════════════════════ */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: rgba(3, 105, 161, 0.06);
+}
+
+[data-theme='dark'] .theme-toggle:hover {
+  background: rgba(56, 189, 248, 0.10);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════
+   DARK THEME OVERRIDES
+═══════════════════════════════════ */
+[data-theme='dark'] #navbar {
+  background: rgba(10, 14, 26, 0.85);
+}
+
+[data-theme='dark'] #navbar.solid {
+  background: rgba(10, 14, 26, 0.97);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ═══════════════════════════════════
+   DARK MODE - MOBILE MENU
+═══════════════════════════════════ */
+[data-theme='dark'] .mob-menu {
+  background: rgba(10, 14, 26, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+[data-theme='dark'] .mob-close {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme='dark'] .mob-close:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme='dark'] .mob-nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .mob-nav-link:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme='dark'] .mob-lang-selector {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .mob-lang-option {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .mob-lang-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme='dark'] .mob-lang-option.active {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38BDF8;
+}
+
+[data-theme='dark'] .mob-theme-toggle {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .mob-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.95);
 }
