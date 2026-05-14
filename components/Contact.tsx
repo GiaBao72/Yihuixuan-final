@@ -40,7 +40,15 @@ export default function Contact() {
               <ContactInfo 
                 icon={<LocationIcon />}
                 title={t.contact_address}
-                content={t.contact_address_full}
+                content={
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=Cụm+CN+Hạp+Lĩnh,+P.+Hạp+Lĩnh,+TP.+Bắc+Ninh" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    {t.contact_address_full}
+                  </a>
+                }
                 delay={0.1}
               />
               <ContactInfo 

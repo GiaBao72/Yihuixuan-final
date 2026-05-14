@@ -351,3 +351,11 @@
   .btn-submit  { padding: 14px 28px; font-size: 15px; }
   .contact-footer { padding: 20px 5%; font-size: 12px; }
 }
+
+/* Ensure links in contact info are clickable */
+.ci-text a {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  pointer-events: auto;
+}

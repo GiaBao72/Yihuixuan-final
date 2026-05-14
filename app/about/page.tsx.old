@@ -1,0 +1,198 @@
+'use client';
+
+import Navbar from '@/components/Navbar';
+import Contact from '@/components/Contact';
+import '@/app/styles/about-new.css';
+
+export default function AboutPage() {
+  return (
+    <>
+      <Navbar />
+      <main className="about-page-new">
+        <section className="about-header">
+          <div className="container">
+            <h1 className="page-title">VỀ CHÚNG TÔI</h1>
+          </div>
+        </section>
+
+        <section className="about-section">
+          <div className="container">
+            <h2 className="section-title">
+              Vietnam Yihuixuan Co., Ltd. – Cùng Suzhou Borna Tiên Phong Trở Thành Đối Tác Chiến Lược Về Giải Pháp Tự Động Hóa Laser
+            </h2>
+            <div className="content-block">
+              <p>
+                Chào mừng Quý đối tác và Khách hàng đến với Vietnam Yihuixuan Co., Ltd. – dấu ấn tự hào và là bước chuyển mình mang tính chiến lược của tập đoàn mẹ Suzhou Borna Intelligent Equipment Co., Ltd. tại thị trường Đông Nam Á.
+              </p>
+              <p>
+                Được kế thừa nền tảng công nghệ ưu việt và bề dày kinh nghiệm từ công ty mẹ tại Trung Quốc, chúng tôi tự hào là đơn vị cung cấp các thiết bị, giải pháp tự động hóa gia công công nghiệp laser hàng đầu. Với khát vọng tối ưu hóa dây chuyền sản xuất và nâng tầm chất lượng cho các doanh nghiệp, chúng tôi cam kết mang đến những công nghệ tiên tiến nhất, đáp ứng những tiêu chuẩn khắt khe nhất của thị trường toàn cầu.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-section bg-light">
+          <div className="container">
+            <h2 className="section-title">Hành Trình Phát Triển & Mở Rộng Dấu Ấn Tại Việt Nam</h2>
+            <div className="content-block">
+              <p>
+                Suzhou Borna Intelligent Equipment Co., Ltd. (苏州博尔纳智能装备有限公司) đã khẳng định vững chắc vị thế của mình tại Trung Quốc và trên trường quốc tế với tư cách là một chuyên gia trong lĩnh vực thiết bị tự động hóa và gia công bằng công nghệ laser.
+              </p>
+              <p>
+                Nhận thấy tiềm năng phát triển mạnh mẽ và nhu cầu nâng cấp công nghệ sản xuất ngày càng cao tại Việt Nam, vào năm 2022, chúng tôi đã chính thức thành lập chi nhánh Vietnam Yihuixuan Co., Ltd. (越南艺辉轩责任有限公司).
+              </p>
+              <p>
+                Trụ sở chi nhánh được đặt chiến lược tại Khu công nghiệp Hợp Lĩnh, Tỉnh Bắc Ninh – một trong những trung tâm công nghiệp công nghệ cao và năng động bậc nhất miền Bắc Việt Nam. Việc thiết lập cơ sở vật chất tại đây (thuê xưởng nhà máy giấy Anh Phú) cho phép chúng tôi trực tiếp tiếp cận, hỗ trợ kỹ thuật nhanh chóng và cung cấp các dịch vụ bảo hành, tư vấn tận nơi cho khách hàng tại thị trường Việt Nam cũng như các nước lân cận.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-section">
+          <div className="container">
+            <h2 className="section-title">Lĩnh Vực Hoạt Động & Ứng Dụng Đa Ngành</h2>
+            <div className="content-block">
+              <p>
+                Borna và Yihuixuan tập trung nghiên cứu, chế tạo và cung cấp hệ thống thiết bị tự động hóa gia công laser mang tính linh hoạt và độ chính xác cao. Sản phẩm của chúng tôi là "chìa khóa" giúp giải quyết bài toán năng suất cho đa dạng các ngành công nghiệp mũi nhọn.
+              </p>
+              <p className="section-subtitle">
+                Chúng tôi hiện đang phục vụ và cung cấp giải pháp cho các lĩnh vực trọng điểm bao gồm:
+              </p>
+            </div>
+            <div className="industry-grid">
+              <div className="industry-card">
+                <h3 className="industry-card-title">Công nghệ & Điện tử</h3>
+                <p className="industry-card-desc">
+                  Đồ điện tử tiêu dùng (3C), điện tử ô tô, linh kiện điện tử, và dây cáp điện.
+                </p>
+              </div>
+              <div className="industry-card">
+                <h3 className="industry-card-title">Y tế & Sức khỏe</h3>
+                <p className="industry-card-desc">
+                  Thiết bị y tế, dụng cụ làm đẹp, và máy móc, bao bì ngành dược phẩm.
+                </p>
+              </div>
+              <div className="industry-card">
+                <h3 className="industry-card-title">Đời sống & Tiêu dùng</h3>
+                <p className="industry-card-desc">
+                  Các sản phẩm hóa mỹ phẩm hàng ngày, đồ dùng an toàn cho mẹ & bé, thiết bị gia dụng.
+                </p>
+              </div>
+              <div className="industry-card">
+                <h3 className="industry-card-title">Công nghiệp Kỹ thuật & Xây dựng</h3>
+                <p className="industry-card-desc">
+                  Vật liệu xây dựng, ngũ kim và gia công cơ khí chính xác.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-section bg-light">
+          <div className="container">
+            <h2 className="section-title">Tầm Nhìn & Sứ Mệnh</h2>
+            <div className="two-column">
+              <div className="column">
+                <h3 className="column-title">Tầm nhìn:</h3>
+                <p>
+                  Trở thành doanh nghiệp dẫn đầu trong khu vực Châu Á về cung cấp thiết bị tự động hóa gia công laser. Vietnam Yihuixuan định hướng trở thành đối tác công nghệ số 1 mà mọi nhà máy, xí nghiệp tại Việt Nam nghĩ tới khi có nhu cầu hiện đại hóa và tự động hóa dây chuyền sản xuất.
+                </p>
+              </div>
+              <div className="column">
+                <h3 className="column-title">Sứ mệnh:</h3>
+                <div className="mission-list">
+                  <div className="mission-item">
+                    <h4 className="mission-item-title">Với khách hàng:</h4>
+                    <p className="mission-item-desc">
+                      Mang đến các giải pháp công nghệ laser đột phá, tối ưu chi phí vận hành, nâng cao hiệu suất và chất lượng đầu ra cho từng sản phẩm.
+                    </p>
+                  </div>
+                  <div className="mission-item">
+                    <h4 className="mission-item-title">Với thị trường:</h4>
+                    <p className="mission-item-desc">
+                      Thúc đẩy sự phát triển của nền công nghiệp sản xuất phụ trợ và chế tạo vươn tới các chuẩn mực quốc tế thông qua tự động hóa.
+                    </p>
+                  </div>
+                  <div className="mission-item">
+                    <h4 className="mission-item-title">Với sự phát triển bền vững:</h4>
+                    <p className="mission-item-desc">
+                      Cung cấp những thiết bị tiết kiệm năng lượng, thân thiện với môi trường, hướng tới kỷ nguyên công nghiệp xanh.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-section">
+          <div className="container">
+            <h2 className="section-title">Vì Sao Nên Chọn Chúng Tôi?</h2>
+            <div className="reason-grid">
+              <div className="reason-card">
+                <div className="reason-icon">🎯</div>
+                <h3 className="reason-title">Công nghệ cốt lõi từ chuyên gia</h3>
+                <p className="reason-desc">
+                  Kế thừa 100% tinh hoa công nghệ, kỹ thuật và quy trình quản lý chất lượng từ Suzhou Borna (Trung Quốc).
+                </p>
+              </div>
+              <div className="reason-card">
+                <div className="reason-icon">⚡</div>
+                <h3 className="reason-title">Hỗ trợ nội địa hóa nhanh chóng</h3>
+                <p className="reason-desc">
+                  Sự hiện diện của chi nhánh tại Bắc Ninh giúp chúng tôi phá bỏ rào cản về khoảng cách và ngôn ngữ, đảm bảo dịch vụ hậu mãi, bảo trì, và chuyển giao công nghệ diễn ra xuyên suốt, kịp thời.
+                </p>
+              </div>
+              <div className="reason-card">
+                <div className="reason-icon">🔧</div>
+                <h3 className="reason-title">Giải pháp may đo linh hoạt</h3>
+                <p className="reason-desc">
+                  Không chỉ bán thiết bị, chúng tôi tư vấn và thiết kế hệ thống tự động hóa dựa trên nhu cầu, đặc thù và ngân sách thực tế của từng nhà máy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-section bg-light">
+          <div className="container">
+            <h2 className="section-title">Thông Tin Liên Hệ</h2>
+            <div className="content-block">
+              <p>
+                Chúng tôi luôn sẵn sàng lắng nghe và đồng hành cùng Quý doanh nghiệp trên con đường tự động hóa sản xuất. Hãy liên hệ với chúng tôi qua thông tin dưới đây:
+              </p>
+            </div>
+            <div className="contact-info-grid">
+              <div className="contact-card">
+                <h3 className="contact-card-header">🇻🇳 TRỤ SỞ TẠI VIỆT NAM (Chi nhánh trực tiếp)</h3>
+                <p className="contact-card-company">Vietnam Yihuixuan Co., Ltd. (越南艺辉轩责任有限公司)</p>
+                <p className="contact-card-address">
+                  Cụm công nghiệp Hợp Lĩnh, Phường Hợp Lĩnh, Thành phố Bắc Ninh, Tỉnh Bắc Ninh (Xưởng thuê: Nhà máy giấy Anh Phú).
+                </p>
+                <p className="contact-card-email">nghehuyhienvn@gmail.com</p>
+              </div>
+              <div className="contact-card">
+                <h3 className="contact-card-header">🇨🇳 CÔNG TY MẸ TẠI TRUNG QUỐC</h3>
+                <p className="contact-card-company">Suzhou Borna Intelligent Equipment Co., Ltd. (苏州博尔纳智能装备有限公司)</p>
+                <p className="contact-card-address">
+                  Số 1861 Đường Zhenzhen Xin Đông, Thị trấn Zhangpu, Thành phố Côn Sơn, Tỉnh Giang Tô, Trung Quốc.
+                </p>
+                <p className="contact-card-email">boernazn@163.com</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-tagline">
+          <div className="container">
+            <p className="tagline-text">
+              Vietnam Yihuixuan – Kiến tạo giá trị từ công nghệ, Dẫn dắt tương lai bằng tự động hóa!
+            </p>
+          </div>
+        </section>
+
+      </main>
+      <Contact />
+    </>
+  );
+}
