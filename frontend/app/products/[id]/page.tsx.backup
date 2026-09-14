@@ -1,0 +1,187 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import ProductPageClient from '@/components/ProductPageClient';
+import { useLang } from '@/lib/useLang';
+
+export default function ProductPage() {
+  const params = useParams();
+  const id = params.id as string;
+  const { lang } = useLang();
+  const [product, setProduct] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        setLoading(true);
+        const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:3001';
+
+        const getStrapiImageUrl = (imageData: any) => {
+          if (!imageData?.data) return '';
+          const url = imageData.data.attributes.url;
+          return url.startsWith('http') ? url : `${strapiUrl}${url}`;
+        };
+
+        const getStrapiGalleryItems = (galleryData: any) => {
+          if (!galleryData?.data) return [];
+          return galleryData.data.map((item: any) => ({
+            id: item.id,
+            url: item.attributes.url.startsWith('http')
+              ? item.attributes.url
+              : `${strapiUrl}${item.attributes.url}`,
+            alternativeText: item.attributes.alternativeText || '',
+            mime: item.attributes.mime,
+            width: item.attributes.width,
+            height: item.attributes.height,
+          }));
+        };
+
+        // Fetch product by ID with localizations
+        const localeToUse = lang === 'zh' ? 'zh' : lang === 'en' ? 'en' : 'vi';
+        
+        const res = await fetch(
+          `${strapiUrl}/api/products/${id}?populate[0]=mainImage&populate[1]=detailImage&populate[2]=gallery&populate[3]=localizations&populate[4]=specs&populate[5]=applications`
+        );
+        
+        if (!res.ok) {
+          setProduct(null);
+          return;
+        }
+        
+        const data = await res.json();
+        let productData = data.data;
+
+        if (!productData) {
+          setProduct(null);
+          return;
+        }
+
+        // Check if current product matches desired locale
+        const currentLocale = productData.attributes.locale;
+        console.log('[ProductDetail] ID:', id, 'currentLocale:', currentLocale, 'localeToUse:', localeToUse);
+        
+        if (currentLocale !== localeToUse) {
+          console.log('[ProductDetail] Locale mismatch! Finding localization...');
+          // Try to find the correct localization
+          const localizations = productData.attributes.localizations?.data || [];
+          const targetLocalization = localizations.find((loc: any) => loc.attributes.locale === localeToUse);
+          
+          if (targetLocalization) {
+            // Fetch the correct localization data (no URL redirect)
+            const locRes = await fetch(
+              `${strapiUrl}/api/products/${targetLocalization.id}?populate=*`
+            );
+            
+            if (locRes.ok) {
+              const locData = await locRes.json();
+              productData = locData.data;
+              console.log('[ProductDetail] Fetched localization ID:', productData.id, 'locale:', productData.attributes.locale, 'name:', productData.attributes.name);
+            }
+          }
+          // If no localization found, keep the original (fallback)
+        }
+
+        const attr = productData.attributes;
+
+        const productObj = {
+          id: productData.id,
+          detailedContent: attr.detailedContent || '',
+          name: attr.name,
+          slug: attr.slug,
+          shortDescription: attr.shortDescription || '',
+          fullDescription: attr.fullDescription || '',
+          features: attr.features || [],
+          mainImage: {
+            id: attr.mainImage?.data?.id || 0,
+            url: getStrapiImageUrl(attr.mainImage),
+            alternativeText: attr.name,
+            width: attr.mainImage?.data?.attributes?.width || 800,
+            height: attr.mainImage?.data?.attributes?.height || 600,
+          },
+          detailImage: {
+            id: attr.detailImage?.data?.id || 0,
+            url: getStrapiImageUrl(attr.detailImage),
+            alternativeText: attr.name,
+            width: attr.detailImage?.data?.attributes?.width || 1200,
+            height: attr.detailImage?.data?.attributes?.height || 800,
+          },
+          gallery: getStrapiGalleryItems(attr.gallery),
+          ctaLink: attr.ctaLink || '#contact',
+          order: attr.order || 0,
+          isActive: attr.isActive !== false,
+          category: attr.category || '',
+          specs: attr.specs || [],
+          applications: attr.applications || [],
+          otherProducts: [],
+        };
+
+        // Fetch other products in same locale
+        const productLocale = attr.locale;
+        const otherResponse = await fetch(
+          `${strapiUrl}/api/products?locale=${productLocale}&populate=mainImage&sort=order:asc&pagination[pageSize]=6`
+        );
+
+        if (otherResponse.ok) {
+          const otherData = await otherResponse.json();
+          productObj.otherProducts = otherData.data
+            .filter((p: any) => p.id !== productData.id && p.attributes.isActive !== false)
+            .slice(0, 4)
+            .map((p: any) => ({
+              id: p.id,
+              name: p.attributes.name,
+              slug: p.attributes.slug,
+              shortDescription: p.attributes.shortDescription || '',
+              mainImage: {
+                url: getStrapiImageUrl(p.attributes.mainImage),
+                alternativeText: p.attributes.name,
+              },
+            }));
+        }
+
+        setProduct(productObj);
+      } catch (error) {
+        console.error('Error fetching product:', error);
+        setProduct(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [id, lang]);
+
+  if (loading) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <div>
+          {lang === 'vi' ? 'Đang tải...' : lang === 'en' ? 'Loading...' : '加载中...'}
+        </div>
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <div>
+          {lang === 'vi' ? 'Không tìm thấy sản phẩm' : lang === 'en' ? 'Product not found' : '未找到产品'}
+        </div>
+      </div>
+    );
+  }
+
+  return <ProductPageClient product={product} />;
+}

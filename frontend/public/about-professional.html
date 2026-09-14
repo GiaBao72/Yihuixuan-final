@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional About Page - Industrial Style</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    
+    /* ============================================ */
+    /* OPTION 1: SIEMENS/ABB STYLE - Corporate Clean */
+    /* ============================================ */
+    
+    .option1 {
+      background: #fff;
+    }
+    
+    .hero-corporate {
+      height: 70vh;
+      background: linear-gradient(135deg, #003d7a 0%, #0066b3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-corporate::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+    
+    .hero-corporate .container {
+      max-width: 1200px;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-corporate h1 {
+      font-size: 64px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    
+    .hero-corporate p {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      font-weight: 300;
+    }
+    
+    /* Content Sections */
+    .section-corporate {
+      padding: 100px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      border-left: 4px solid #0066b3;
+      padding-left: 24px;
+      margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+      font-size: 40px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+    
+    .section-header p {
+      font-size: 18px;
+      color: #666;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 80px;
+    }
+    
+    .column h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+    
+    .column p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #444;
+    }
+    
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      padding: 60px 0;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .stat-box {
+      text-align: center;
+    }
+    
+    .stat-box .number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #0066b3;
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    .stat-box .label {
+      font-size: 14px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .contact-card {
+      padding: 40px;
+      background: #f8f9fa;
+      border-left: 4px solid #0066b3;
+    }
+    
+    .contact-card h4 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+    
+    .contact-card p {
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    
+    .contact-card a {
+      color: #0066b3;
+      text-decoration: none;
+    }
+    
+    /* ============================================ */
+    /* OPTION 2: TRUMPF STYLE - Technical Precision */
+    /* ============================================ */
+    
+    .option2 {
+      background: #f5f5f5;
+    }
+    
+    .hero-technical {
+      height: 80vh;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .hero-technical::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: linear-gradient(90deg, transparent, rgba(0, 102, 179, 0.1));
+    }
+    
+    .hero-technical .container {
+      max-width: 1400px;
+      padding: 0 60px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-technical h1 {
+      font-size: 72px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 32px;
+      letter-spacing: -0.03em;
+      max-width: 800px;
+    }
+    
+    .hero-technical .tagline {
+      font-size: 28px;
+      color: #0066b3;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    
+    .hero-technical p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    
+    .section-technical {
+      padding: 120px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .section-technical.dark {
+      background: #1a1a1a;
+      color: #fff;
+    }
+    
+    .section-technical h2 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 60px;
+      color: inherit;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+    }
+    
+    .feature-item h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #0066b3;
+    }
+    
+    .feature-item p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #666;
+    }
+    
+    .dark .feature-item h3 {
+      color: #4a90e2;
+    }
+    
+    .dark .feature-item p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+    }
+    
+    .info-table tr {
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .dark .info-table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .info-table td {
+      padding: 24px 0;
+      font-size: 16px;
+    }
+    
+    .info-table td:first-child {
+      font-weight: 600;
+      width: 200px;
+      color: #666;
+    }
+    
+    .dark .info-table td:first-child {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .info-table td:last-child {
+      color: #1a1a1a;
+    }
+    
+    .dark .info-table td:last-child {
+      color: #fff;
+    }
+    
+    /* ============================================ */
+    /* OPTION 3: FANUC STYLE - Industrial Minimal */
+    /* ============================================ */
+    
+    .option3 {
+      background: #fff;
+    }
+    
+    .hero-minimal {
+      padding: 180px 60px 120px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .hero-minimal h1 {
+      font-size: 96px;
+      font-weight: 900;
+      color: #1a1a1a;
+      margin-bottom: 40px;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    
+    .hero-minimal .intro {
+      font-size: 32px;
+      line-height: 1.5;
+      color: #444;
+      max-width: 900px;
+      font-weight: 300;
+    }
+    
+    .section-minimal {
+      padding: 80px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .section-minimal h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 40px;
+    }
+    
+    .content-row {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 100px;
+      margin-bottom: 60px;
+    }
+    
+    .content-row h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    
+    .content-row p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #444;
+    }
+    
+    .product-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .product-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 18px;
+      color: #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .product-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .product-list .arrow {
+      color: #0066b3;
+      font-size: 24px;
+    }
+    
+    .location-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      padding: 80px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #f8f9fa;
+    }
+    
+    .location-block h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 24px;
+    }
+    
+    .location-block dl {
+      margin: 0;
+    }
+    
+    .location-block dt {
+      font-size: 12px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    
+    .location-block dd {
+      font-size: 16px;
+      color: #444;
+      margin: 0;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 20px 60px;
+      z-index: 1000;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .nav a {
+      color: #1a1a1a;
+      text-decoration: none;
+      margin-right: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav a:hover { color: #0066b3; }
+    .nav a.active { color: #0066b3; }
+    
+    @media (max-width: 768px) {
+      .two-column, .contact-grid, .feature-grid, .content-row, .location-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .hero-corporate h1, .hero-technical h1, .hero-minimal h1 {
+        font-size: 40px;
+      }
+      
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="#option1" class="active">Option 1: Corporate</a>
+    <a href="#option2">Option 2: Technical</a>
+    <a href="#option3">Option 3: Minimal</a>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- OPTION 1: SIEMENS/ABB STYLE -->
+  <!-- ============================================ -->
+  
+  <div id="option1" class="option1">
+    <div class="hero-corporate">
+      <div class="container">
+        <h1>Về Chúng Tôi</h1>
+        <p>Đối tác tin cậy trong giải pháp tự động hóa laser công nghiệp</p>
+      </div>
+    </div>
+    
+    <div class="section-corporate">
+      <div class="section-header">
+        <h2>Giới Thiệu Công Ty</h2>
+        <p>Borna - Chuyên gia thiết bị laser công nghiệp</p>
+      </div>
+      
+      <div class="two-column">
+        <div class="column">
+          <h3>Về Borna</h3>
+          <p>Công ty TNHH Nghệ Huy Hiên (Vietnam Yihuixuan Co., Ltd.) là chi nhánh tại Việt Nam của Công ty TNHH Thiết bị Thông minh Borna Tô Châu. Chúng tôi chuyên cung cấp thiết bị tự động hóa gia công công nghiệp bằng laser, tích hợp từ phát triển quy trình, giải quyết các khó khăn kỹ thuật đến sản xuất máy móc hoàn chỉnh.</p>
+        </div>
+        <div class="column">
+          <h3>Thị Trường</h3>
+          <p>Thành lập chi nhánh Việt Nam năm 2022 tại Bắc Ninh, chúng tôi trực tiếp phục vụ các ngành: điện tử 3C, dây cáp điện, y tế & làm đẹp, dược phẩm, ô tô, gia dụng và vật liệu xây dựng.</p>
+        </div>
+      </div>
+      
+      <div class="stats-bar">
+        <div class="stat-box">
+          <span class="number">2022</span>
+          <span class="label">Thành lập VN</span>
+        </div>
+        <div class="stat-box">
+          <span class="number">500+</span>
+          <span class="label">Khách hàng</span>
+        </div>
+        <div class="stat-box">
+          <span class="number">5</span>
+          <span class="label">Dòng sản phẩm</span>
+        </div>
+        <div class="stat-box">
+          <span class="number">24/7</span>
+          <span class="label">Hỗ trợ</span>
+        </div>
+      </div>
+      
+      <div class="section-header" style="margin-top: 100px;">
+        <h2>Dòng Sản Phẩm</h2>
+        <p>Giải pháp laser toàn diện</p>
+      </div>
+      
+      <div class="two-column">
+        <div class="column">
+          <h3>Marking Series</h3>
+          <p>Máy đánh dấu laser UV, CO2, Fiber với độ chính xác cao, phù hợp cho mọi vật liệu.</p>
+        </div>
+        <div class="column">
+          <h3>Skinning Series</h3>
+          <p>Máy tuốt vỏ dây laser tốc độ cao, không làm hỏng lõi dẫn điện.</p>
+        </div>
+        <div class="column">
+          <h3>Welding Series</h3>
+          <p>Máy hàn laser chính xác cho điện tử, y tế và ô tô.</p>
+        </div>
+        <div class="column">
+          <h3>Cutting Series</h3>
+          <p>Máy cắt laser tốc độ cao cho kim loại, thủy tinh và vật liệu composite.</p>
+        </div>
+      </div>
+      
+      <div class="section-header" style="margin-top: 100px;">
+        <h2>Liên Hệ</h2>
+        <p>Hai văn phòng phục vụ toàn khu vực</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h4>🇻🇳 Việt Nam</h4>
+          <p><strong>Vietnam Yihuixuan Co., Ltd.</strong></p>
+          <p>Bắc Ninh, Khu công nghiệp Hợp Lĩnh</p>
+          <p><a href="mailto:nghehuyhienvn@gmail.com">nghehuyhienvn@gmail.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h4>🇨🇳 Trung Quốc</h4>
+          <p><strong>Suzhou Borna Intelligent Equipment Co., Ltd.</strong></p>
+          <p>Giang Tô, Côn Sơn, Trấn Trương Phố</p>
+          <p><a href="mailto:boernazn@163.com">boernazn@163.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- OPTION 2: TRUMPF STYLE -->
+  <!-- ============================================ -->
+  
+  <div id="option2" class="option2">
+    <div class="hero-technical">
+      <div class="container">
+        <div class="tagline">BORNA LASER TECHNOLOGY</div>
+        <h1>Tập trung vào tùy chỉnh laser, tận tâm phục vụ khách hàng</h1>
+        <p>Nhà cung cấp chuyên nghiệp các thiết bị tự động hóa gia công công nghiệp bằng laser, tích hợp từ phát triển quy trình đến sản xuất máy móc hoàn chỉnh.</p>
+      </div>
+    </div>
+    
+    <div class="section-technical">
+      <h2>Giải Pháp Toàn Diện</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>Marking</h3>
+          <p>Đánh dấu laser UV/CO2/Fiber cho mọi vật liệu với độ chính xác tuyệt đối.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Skinning</h3>
+          <p>Tuốt vỏ dây laser tốc độ cao, bảo vệ lõi dẫn điện hoàn hảo.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Welding</h3>
+          <p>Hàn laser chính xác cho điện tử, y tế và công nghiệp ô tô.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Cutting</h3>
+          <p>Cắt laser tốc độ cao cho kim loại, thủy tinh và composite.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Automation</h3>
+          <p>Tùy chỉnh dây chuyền tự động hóa phi tiêu chuẩn theo yêu cầu.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Support</h3>
+          <p>Hỗ trợ kỹ thuật 24/7, đào tạo vận hành và bảo trì định kỳ.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-technical dark">
+      <h2>Thông Tin Công Ty</h2>
+      <table class="info-table">
+        <tr>
+          <td>Tên công ty (VN)</td>
+          <td>Vietnam Yihuixuan Co., Ltd.</td>
+        </tr>
+        <tr>
+          <td>Địa chỉ (VN)</td>
+          <td>Bắc Ninh, Khu công nghiệp Hợp Lĩnh</td>
+        </tr>
+        <tr>
+          <td>Email (VN)</td>
+          <td>nghehuyhienvn@gmail.com</td>
+        </tr>
+        <tr>
+          <td>Tên công ty (CN)</td>
+          <td>Suzhou Borna Intelligent Equipment Co., Ltd.</td>
+        </tr>
+        <tr>
+          <td>Địa chỉ (CN)</td>
+          <td>Giang Tô, Côn Sơn, Trấn Trương Phố</td>
+        </tr>
+        <tr>
+          <td>Email (CN)</td>
+          <td>boernazn@163.com</td>
+        </tr>
+        <tr>
+          <td>Thành lập VN</td>
+          <td>2022</td>
+        </tr>
+        <tr>
+          <td>Khách hàng</td>
+          <td>500+</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- OPTION 3: FANUC STYLE -->
+  <!-- ============================================ -->
+  
+  <div id="option3" class="option3">
+    <div class="hero-minimal">
+      <h1>Về Chúng Tôi</h1>
+      <p class="intro">Borna chuyên về thiết bị tự động hóa gia công công nghiệp laser. Chi nhánh Việt Nam thành lập 2022 tại Bắc Ninh, trực tiếp phục vụ thị trường Việt Nam và khu vực.</p>
+    </div>
+    
+    <div class="section-minimal">
+      <h2>Sứ Mệnh & Tầm Nhìn</h2>
+      <div class="content-row">
+        <h3>Sứ Mệnh</h3>
+        <p>Giải quyết độ chính xác, tính khả thi và hiệu quả trong gia công sản xuất cho doanh nghiệp. Mang đến giải pháp laser tùy chỉnh phù hợp nhất với nhu cầu thực tế của từng khách hàng.</p>
+      </div>
+      <div class="content-row">
+        <h3>Tầm Nhìn</h3>
+        <p>Trở thành đối tác tin cậy hàng đầu trong lĩnh vực công nghệ laser tại Việt Nam và khu vực Đông Nam Á, góp phần thúc đẩy sự phát triển của ngành công nghiệp 4.0.</p>
+      </div>
+    </div>
+    
+    <div class="section-minimal">
+      <h2>Dòng Sản Phẩm</h2>
+      <ul class="product-list">
+        <li>
+          <span>Marking Series — Máy đánh dấu laser UV/CO2/Fiber</span>
+          <span class="arrow">→</span>
+        </li>
+        <li>
+          <span>Skinning Series — Máy tuốt vỏ dây laser tốc độ cao</span>
+          <span class="arrow">→</span>
+        </li>
+        <li>
+          <span>Welding Series — Máy hàn laser chính xác</span>
+          <span class="arrow">→</span>
+        </li>
+        <li>
+          <span>Cutting Series — Máy cắt laser tốc độ cao</span>
+          <span class="arrow">→</span>
+        </li>
+        <li>
+          <span>Custom Automation — Tùy chỉnh tự động hóa phi tiêu chuẩn</span>
+          <span class="arrow">→</span>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="location-section">
+      <div class="location-block">
+        <h3>🇻🇳 Việt Nam</h3>
+        <dl>
+          <dt>Tên công ty</dt>
+          <dd>Vietnam Yihuixuan Co., Ltd.</dd>
+          <dt>Địa chỉ</dt>
+          <dd>Bắc Ninh, Khu công nghiệp Hợp Lĩnh</dd>
+          <dt>Email</dt>
+          <dd>nghehuyhienvn@gmail.com</dd>
+        </dl>
+      </div>
+      <div class="location-block">
+        <h3>🇨🇳 Trung Quốc</h3>
+        <dl>
+          <dt>Tên công ty</dt>
+          <dd>Suzhou Borna Intelligent Equipment Co., Ltd.</dd>
+          <dt>Địa chỉ</dt>
+          <dd>Giang Tô, Côn Sơn, Trấn Trương Phố</dd>
+          <dt>Email</dt>
+          <dd>boernazn@163.com</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+        
+        document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

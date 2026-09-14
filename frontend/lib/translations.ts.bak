@@ -1,0 +1,535 @@
+export const translations = {
+  vi: {
+    // Navigation
+    nav_home: 'Trang chủ',
+    nav_products: 'Sản phẩm',
+    nav_about: 'Về chúng tôi',
+    nav_contact: 'Liên hệ',
+    
+    // Hero section
+    hero_company_name: 'Công ty TNHH Nghệ Huy Hiên',
+    hero_company_name_zh: 'Vietnam Yihuixuan Co., Ltd.',
+    hero_tagline: 'Nhà cung cấp thiết bị laser & thiết bị tự động hóa',
+    hero_slogan: 'Chuyên nghiệp • Sáng tạo • Uy tín • Cùng thắng',
+    hero_motto: 'Phục vụ khách hàng, luôn nhất quán',
+    hero_cta_consult: 'Tư vấn miễn phí',
+    hero_cta_explore: 'Khám phá sản phẩm',
+    
+    // Products section
+    products_title: 'Sản phẩm',
+    products_title_em: 'nổi bật',
+    products_subtitle: 'Thiết bị laser công nghiệp hàng đầu',
+    
+    // Industries section
+    industries_label: 'Ngành ứng dụng',
+    industries_title: 'Phục vụ đa dạng',
+    industries_title_em: 'ngành công nghiệp',
+    industries_subtitle: 'Giải pháp laser chuyên biệt cho từng lĩnh vực sản xuất',
+    industries_automotive: 'Ô tô & Phụ tùng',
+    industries_automotive_desc: 'Hàn, cắt, đánh dấu linh kiện ô tô chính xác cao',
+    industries_electronics: 'Điện tử & Bán dẫn',
+    industries_electronics_desc: 'Xử lý vi mạch, PCB, linh kiện điện tử tinh vi',
+    industries_medical: 'Y tế & Dược phẩm',
+    industries_medical_desc: 'Đánh dấu thiết bị y tế, bao bì dược phẩm đạt chuẩn',
+    industries_packaging: 'Bao bì & In ấn',
+    industries_packaging_desc: 'Mã vạch, QR code, ngày sản xuất trên mọi vật liệu',
+    industries_metal: 'Kim loại & Cơ khí',
+    industries_metal_desc: 'Cắt, hàn, khắc kim loại công nghiệp nặng',
+    industries_jewelry: 'Trang sức & Mỹ nghệ',
+    industries_jewelry_desc: 'Khắc tinh xảo trên vàng, bạc, đá quý',
+    
+    // Why Choose Us section
+    why_choose_label: 'Tại sao chọn chúng tôi',
+    why_choose_title: '4 lý do ',
+    why_choose_title_em: 'khác biệt',
+    why_01_title: 'Đối tác chính thức Borna',
+    why_01_desc: 'Đại lý ủy quyền của Suzhou Borna — thiết bị chính hãng, hỗ trợ kỹ thuật trực tiếp từ nhà sản xuất.',
+    why_02_title: 'Tư vấn kỹ thuật miễn phí',
+    why_02_desc: 'Đội kỹ sư phân tích quy trình, đề xuất giải pháp tối ưu trước khi ký hợp đồng.',
+    why_03_title: 'Linh kiện sẵn có tại kho',
+    why_03_desc: 'Nguồn laser, thấu kính, gương quét chính hãng tại Bắc Ninh — giảm thời gian dừng máy.',
+    why_04_title: 'Hỗ trợ sau bán hàng dài hạn',
+    why_04_desc: 'Bảo hành, đào tạo, hỗ trợ sự cố từ xa và tại chỗ — cam kết đồng hành lâu dài.',
+    
+    // Testimonials section
+    
+    // Testimonials section
+    testimonials_label: 'Khách hàng nói gì',
+    testimonials_title: 'Đối tác',
+    testimonials_title_em: 'tin tưởng',
+    testimonials_subtitle: 'Hơn 500+ doanh nghiệp đã chọn Borna Laser',
+    testimonials_1_text: 'Thiết bị laser của Borna giúp chúng tôi tăng năng suất 40% và giảm lỗi sản xuất xuống gần như bằng 0. Đội ngũ kỹ thuật hỗ trợ rất chuyên nghiệp.',
+    testimonials_1_author: 'Nguyễn Văn A',
+    testimonials_1_company: 'Giám đốc Sản xuất, Công ty TNHH ABC',
+    testimonials_2_text: 'Giải pháp tự động hóa laser hoàn toàn thay đổi dây chuyền của chúng tôi. ROI đạt được chỉ sau 8 tháng đầu tư.',
+    testimonials_2_author: 'Trần Thị B',
+    testimonials_2_company: 'Trưởng phòng Kỹ thuật, XYZ Electronics',
+    testimonials_cta: 'Xem thêm đánh giá',
+    testimonials_3_text: 'Máy khắc laser Borna xử lý được cả thép không gỉ lẫn nhựa ABS mà không cần thay đổi cài đặt nhiều. Tiết kiệm thời gian setup đáng kể.',
+    testimonials_3_author: 'Lê Minh C',
+    testimonials_3_company: 'Kỹ sư Sản xuất, DEF Manufacturing',
+    testimonials_4_text: 'Dịch vụ hậu mãi xuất sắc. Khi gặp sự cố, đội kỹ thuật có mặt trong vòng 4 giờ và khắc phục ngay. Đáng tin cậy!',
+    testimonials_4_author: 'Phạm Thị D',
+    testimonials_4_company: 'Quản lý Vận hành, GHI Automotive',
+    testimonials_5_text: 'Chúng tôi đã thử 3 nhà cung cấp khác trước khi chọn Borna. Chất lượng thiết bị và giá cả cạnh tranh nhất thị trường.',
+    testimonials_5_author: 'Hoàng Văn E',
+    testimonials_5_company: 'Giám đốc Mua hàng, JKL Electronics',
+    testimonials_6_text: 'Máy tuốt vỏ dây laser giúp chúng tôi xử lý cáp y tế đạt chuẩn FDA mà không hại lõi đồng. Công nghệ tuyệt vời!',
+    testimonials_6_author: 'Vũ Thị F',
+    testimonials_6_company: 'Trưởng phòng QC, MNO Medical Devices',
+    
+    // Contact section
+    
+    // Contact section
+    contact_label: 'Liên hệ',
+    contact_title: 'Gửi yêu cầu',
+    contact_title_em: 'tư vấn ngay',
+    contact_subtitle: 'Đội ngũ chuyên gia sẵn sàng hỗ trợ 24/7',
+    contact_address: 'Địa chỉ',
+    contact_address_vn: 'Khu công nghiệp Quế Võ, Bắc Ninh, Việt Nam',
+    contact_email_vn: 'Email Việt Nam',
+    contact_china: 'Trụ sở Trung Quốc',
+    contact_china_address: 'Tô Châu, Giang Tô, Trung Quốc',
+    form_name: 'Họ và tên',
+    form_company: 'Công ty',
+    form_email: 'Email',
+    form_phone: 'Điện thoại',
+    form_message: 'Nội dung',
+    form_submit: 'Gửi yêu cầu',
+    form_submitting: 'Đang gửi...',
+    form_success: 'Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm nhất.',
+    form_name_placeholder: 'Nguyễn Văn A',
+    form_company_placeholder: 'Công ty ABC',
+    form_phone_placeholder: '0901 234 567',
+    form_message_placeholder: 'Vật liệu, quy trình, sản lượng, yêu cầu đặc biệt...',
+    form_product_label: 'Sản phẩm quan tâm',
+    form_product_select: '-- Chọn sản phẩm --',
+    form_product_marking: 'Máy Đánh Dấu Laser (Marking)',
+    form_product_skinning: 'Máy Tuốt Vỏ Dây (Skinning)',
+    form_product_welding: 'Máy Hàn Laser (Welding)',
+    form_product_cutting: 'Máy Cắt Laser (Cutting)',
+    form_product_automation: 'Tự Động Hóa Phi Tiêu Chuẩn',
+    contact_address_full: 'Cụm CN Hạp Lĩnh, P. Hạp Lĩnh, TP. Bắc Ninh',
+    contact_china_location: 'Côn Sơn, Giang Tô',
+    contact_footer_rights: 'Công ty TNHH Nghệ Huy Hiên. Bảo lưu mọi quyền.',
+    contact_footer_location: 'Hạp Lĩnh, Bắc Ninh',
+    
+    // Contact buttons
+    
+    // Contact buttons
+    contact_btn_zalo: 'Chat Zalo',
+    contact_btn_whatsapp: 'WhatsApp',
+    contact_btn_wechat: 'WeChat',
+    contact_btn_phone: 'Gọi điện',
+    contact_btn_email: 'Email',
+    
+    // Scroll to top
+    scroll_to_top: 'Lên đầu trang',
+    
+    // Products page
+    products_hero_title: 'Sản phẩm của chúng tôi',
+    products_hero_subtitle: 'Khám phá dòng sản phẩm thiết bị laser công nghiệp hàng đầu',
+    
+    // Categories
+    cat_all: 'Tất cả',
+    cat_marking: 'Đánh dấu laser',
+    cat_skinning: 'Bóc vỏ dây',
+    cat_welding: 'Hàn laser',
+    cat_cutting: 'Cắt laser',
+    cat_automation: 'Tự động hóa',
+    cat_accessories: 'Linh kiện & Phụ kiện',
+    
+    // Product card
+    view_detail: 'Xem chi tiết',
+    
+    // Loading & Error
+    loading: 'Đang tải...',
+    error_load: 'Không thể tải sản phẩm',
+    no_products: 'Không có sản phẩm nào',
+    
+    // Product detail
+    detail_breadcrumb_home: 'Trang chủ',
+    detail_breadcrumb_products: 'Sản phẩm',
+    specifications: 'Thông số kỹ thuật',
+    applications: 'Ứng dụng',
+    features: 'Tính năng',
+    contact_us: 'Liên hệ tư vấn',
+    
+    // About page
+    about_hero_title: 'Về Borna Laser',
+    about_hero_subtitle: 'Đối tác tin cậy trong công nghệ laser công nghiệp',
+  },
+  zh: {
+    // Navigation
+    nav_home: '首页',
+    nav_products: '产品系列',
+    nav_about: '关于我们',
+    nav_contact: '联系我们',
+    
+    // Hero section
+    hero_company_name: 'Công ty TNHH Nghệ Huy Hiên',
+    hero_company_name_zh: '苏州博尔纳智能装备有限公司',
+    hero_tagline: '激光设备 自动化设备供应商',
+    hero_slogan: '专业 • 创新 • 诚信 • 共赢',
+    hero_motto: '服务客户，始终如一',
+    hero_cta_consult: '免费咨询',
+    hero_cta_explore: '探索产品',
+    
+    // Products section
+    products_title: '精选',
+    products_title_em: '产品',
+    products_subtitle: '领先的工业激光设备',
+    
+    // Industries section
+    industries_label: '应用行业',
+    industries_title: '服务多元化',
+    industries_title_em: '工业领域',
+    industries_subtitle: '为各生产领域提供专业激光解决方案',
+    industries_automotive: '汽车及零部件',
+    industries_automotive_desc: '高精度汽车零部件焊接、切割、打标',
+    industries_electronics: '电子及半导体',
+    industries_electronics_desc: '精密处理集成电路、PCB、电子元件',
+    industries_medical: '医疗及制药',
+    industries_medical_desc: '符合标准的医疗设备、药品包装打标',
+    industries_packaging: '包装及印刷',
+    industries_packaging_desc: '各种材料上的条形码、二维码、生产日期',
+    industries_metal: '金属及机械',
+    industries_metal_desc: '重工业金属切割、焊接、雕刻',
+    industries_jewelry: '珠宝及工艺品',
+    industries_jewelry_desc: '金、银、宝石精细雕刻',
+    
+    // Why Choose Us section
+    why_choose_label: '为什么选择我们',
+    why_choose_title: '4个理由 ',
+    why_choose_title_em: '不同',
+    why_01_title: '博纳官方合作伙伴',
+    why_01_desc: '苏州博纳授权代理 — 正品设备，制造商直接技术支持。',
+    why_02_title: '免费技术咨询',
+    why_02_desc: '工程师团队分析流程，签约前提供最优解决方案。',
+    why_03_title: '仓库备有零部件',
+    why_03_desc: '北宁仓库备有正品激光源、透镜、扫描镜 — 减少停机时间。',
+    why_04_title: '长期售后支持',
+    why_04_desc: '保修、培训、远程及现场故障支持 — 承诺长期合作。',
+    
+    // Testimonials section
+    
+    // Testimonials section
+    testimonials_label: '客户评价',
+    testimonials_title: '合作伙伴',
+    testimonials_title_em: '信赖',
+    testimonials_subtitle: '超过500+企业选择博纳激光',
+    testimonials_1_text: '博纳的激光设备帮助我们提高了40%的生产效率，生产错误几乎降至零。技术团队支持非常专业。',
+    testimonials_1_author: '阮文A',
+    testimonials_1_company: '生产总监，ABC有限公司',
+    testimonials_2_text: '激光自动化解决方案彻底改变了我们的生产线。投资回报仅在前8个月就实现了。',
+    testimonials_2_author: '陈氏B',
+    testimonials_2_company: '技术部主管，XYZ电子',
+    testimonials_cta: '查看更多评价',
+    testimonials_3_text: '博纳激光打标机可以处理不锈钢和ABS塑料，无需大量更改设置。大大节省了设置时间。',
+    testimonials_3_author: '黎明C',
+    testimonials_3_company: '生产工程师，DEF制造',
+    testimonials_4_text: '售后服务出色。遇到问题时，技术团队在4小时内到达并立即解决。值得信赖！',
+    testimonials_4_author: '范氏D',
+    testimonials_4_company: '运营经理，GHI汽车',
+    testimonials_5_text: '我们在选择博纳之前尝试了其他3家供应商。设备质量和价格是市场上最具竞争力的。',
+    testimonials_5_author: '黄文E',
+    testimonials_5_company: '采购总监，JKL电子',
+    testimonials_6_text: '激光剥线机帮助我们处理符合FDA标准的医疗电缆，而不会损坏铜芯。技术很棒！',
+    testimonials_6_author: '武氏F',
+    testimonials_6_company: 'QC主管，MNO医疗器械',
+    
+    // Contact section
+    
+    // Contact section
+    contact_label: '联系我们',
+    contact_title: '提交咨询',
+    contact_title_em: '需求',
+    contact_subtitle: '专家团队24/7随时支持',
+    contact_address: '地址',
+    contact_address_vn: '越南北宁省桂武工业区',
+    contact_email_vn: '越南邮箱',
+    contact_china: '中国总部',
+    contact_china_address: '中国江苏省苏州市',
+    form_name: '姓名',
+    form_company: '公司',
+    form_email: '邮箱',
+    form_phone: '电话',
+    form_message: '留言内容',
+    form_submit: '提交咨询',
+    form_submitting: '提交中...',
+    form_success: '感谢您！我们会尽快联系您。',
+    form_name_placeholder: '张三',
+    form_company_placeholder: 'ABC公司',
+    form_phone_placeholder: '138 0000 0000',
+    form_message_placeholder: '材料、工艺、产量、特殊要求...',
+    form_product_label: '感兴趣的产品',
+    form_product_select: '-- 选择产品 --',
+    form_product_marking: '激光打标机',
+    form_product_skinning: '激光剥线机',
+    form_product_welding: '激光焊接机',
+    form_product_cutting: '激光切割机',
+    form_product_automation: '非标自动化设备',
+    contact_address_full: '越南北宁省合灵工业区',
+    contact_china_location: '江苏昆山',
+    contact_footer_rights: '艺辉贤有限公司。保留所有权利。',
+    contact_footer_location: '合灵，北宁',
+    
+    // Contact buttons
+    
+    // Contact buttons
+    contact_btn_zalo: 'Zalo聊天',
+    contact_btn_whatsapp: 'WhatsApp',
+    contact_btn_wechat: '微信',
+    contact_btn_phone: '电话',
+    contact_btn_email: '邮箱',
+    
+    // Scroll to top
+    scroll_to_top: '返回顶部',
+    
+    // Products page
+    products_hero_title: '我们的产品',
+    products_hero_subtitle: '探索领先的工业激光设备产品线',
+    
+    // Categories
+    cat_all: '全部',
+    cat_marking: '激光打标',
+    cat_skinning: '激光剥线',
+    cat_welding: '激光焊接',
+    cat_cutting: '激光切割',
+    cat_automation: '自动化设备',
+    cat_accessories: '零部件与配件',
+    
+    // Product card
+    view_detail: '查看详情',
+    
+    // Loading & Error
+    loading: '加载中...',
+    error_load: '无法加载产品',
+    no_products: '暂无产品',
+    
+    // Product detail
+    detail_breadcrumb_home: '首页',
+    detail_breadcrumb_products: '产品',
+    specifications: '技术规格',
+    applications: '应用领域',
+    features: '产品特点',
+    contact_us: '联系咨询',
+    
+    // About page
+    about_hero_title: '关于博纳激光',
+    about_hero_subtitle: '工业激光技术的可靠合作伙伴',
+  },
+  
+  en: {
+    // Navigation
+    nav_home: 'Home',
+    nav_products: 'Products',
+    nav_about: 'About Us',
+    nav_contact: 'Contact',
+    
+    // Hero section
+    hero_company_name: 'Công ty TNHH Nghệ Huy Hiên',
+    hero_company_name_zh: '苏州博尔纳智能装备有限公司',
+    hero_tagline: 'Laser Equipment & Automation Solutions Provider',
+    hero_slogan: 'Professional • Innovative • Reliable • Win-Win',
+    hero_motto: 'Customer Service, Always Consistent',
+    hero_cta_consult: 'Free Consultation',
+    hero_cta_explore: 'Explore Products',
+    
+    // Products section
+    products_title: 'Featured',
+    products_title_em: 'Products',
+    products_subtitle: 'Leading Industrial Laser Equipment',
+    
+    // Industries section
+    industries_label: 'Industries',
+    industries_title: 'Serving Diverse',
+    industries_title_em: 'Industries',
+    industries_subtitle: 'Specialized laser solutions for every manufacturing sector',
+    industries_automotive: 'Automotive & Parts',
+    industries_automotive_desc: 'High-precision welding, cutting, marking for automotive components',
+    industries_electronics: 'Electronics & Semiconductors',
+    industries_electronics_desc: 'Processing microchips, PCBs, sophisticated electronic components',
+    industries_medical: 'Medical & Pharmaceutical',
+    industries_medical_desc: 'Standard-compliant marking for medical devices and pharmaceutical packaging',
+    industries_packaging: 'Packaging & Printing',
+    industries_packaging_desc: 'Barcodes, QR codes, production dates on all materials',
+    industries_metal: 'Metal & Machinery',
+    industries_metal_desc: 'Cutting, welding, engraving for heavy industrial metals',
+    industries_jewelry: 'Jewelry & Crafts',
+    industries_jewelry_desc: 'Precision engraving on gold, silver, precious stones',
+    
+    // Why Choose Us section
+    why_choose_label: 'Why Choose Us',
+    why_choose_title: '4 Reasons ',
+    why_choose_title_em: 'Different',
+    why_01_title: 'Official Borna Partner',
+    why_01_desc: 'Authorized Suzhou Borna dealer — genuine equipment, direct technical support from manufacturer.',
+    why_02_title: 'Free Technical Consultation',
+    why_02_desc: 'Engineering team analyzes processes, proposes optimal solutions before contract signing.',
+    why_03_title: 'Parts in Stock',
+    why_03_desc: 'Genuine laser sources, lenses, scanning mirrors in Bac Ninh warehouse — minimize downtime.',
+    why_04_title: 'Long-term After-sales Support',
+    why_04_desc: 'Warranty, training, remote and on-site troubleshooting — committed to long-term partnership.',
+    
+    // Testimonials section
+    
+    // Testimonials section
+    testimonials_label: 'What Clients Say',
+    testimonials_title: 'Trusted',
+    testimonials_title_em: 'Partners',
+    testimonials_subtitle: 'Over 500+ businesses have chosen Borna Laser',
+    testimonials_1_text: 'Borna\'s laser equipment helped us increase productivity by 40% and reduce production errors to nearly zero. The technical support team is very professional.',
+    testimonials_1_author: 'Nguyen Van A',
+    testimonials_1_company: 'Production Director, ABC Co., Ltd.',
+    testimonials_2_text: 'The laser automation solution completely transformed our production line. ROI achieved in just 8 months of investment.',
+    testimonials_2_author: 'Tran Thi B',
+    testimonials_2_company: 'CEO, XYZ Manufacturing',
+    testimonials_3_text: 'Outstanding after-sales service. Any issues are resolved within 24 hours. This is a partner we can truly rely on.',
+    testimonials_3_author: 'Le Van C',
+    testimonials_3_company: 'Technical Manager, DEF Electronics',
+    testimonials_4_text: 'Borna laser marking machine handles both stainless steel and ABS plastic without much setup change. Saves significant setup time.',
+    testimonials_4_author: 'Le Minh C',
+    testimonials_4_company: 'Production Engineer, DEF Manufacturing',
+    testimonials_5_text: 'Excellent after-sales service. When we had issues, the technical team arrived within 4 hours and fixed it immediately. Reliable!',
+    testimonials_5_author: 'Pham Thi D',
+    testimonials_5_company: 'Operations Manager, GHI Automotive',
+    testimonials_6_text: 'We tried 3 other suppliers before choosing Borna. Equipment quality and pricing are the most competitive in the market.',
+    testimonials_6_author: 'Hoang Van E',
+    testimonials_6_company: 'Procurement Director, JKL Electronics',
+    
+    // Contact section
+    
+    // Contact section
+    contact_label: 'Get in Touch',
+    contact_title: 'Ready to',
+    contact_title_em: 'Transform',
+    contact_subtitle: 'Contact us today for a free consultation',
+    contact_name: 'Full Name',
+    contact_email: 'Email',
+    contact_phone: 'Phone Number',
+    contact_company: 'Company',
+    contact_message: 'Message',
+    contact_submit: 'Send Message',
+    contact_info_title: 'Contact Information',
+    contact_address: 'Address',
+    contact_address_value: '123 Industrial Park, District 9, Ho Chi Minh City',
+    contact_address_vn: 'Que Vo Industrial Park, Bac Ninh, Vietnam',
+    contact_email_vn: 'Vietnam Email',
+    contact_china: 'China Headquarters',
+    contact_china_address: 'Suzhou, Jiangsu, China',
+    contact_hotline: 'Hotline',
+    contact_email_label: 'Email',
+    contact_working_hours: 'Working Hours',
+    contact_working_hours_value: 'Mon - Sat: 8:00 AM - 6:00 PM',
+    form_name: 'Full Name',
+    form_company: 'Company',
+    form_email: 'Email',
+    form_phone: 'Phone',
+    form_message: 'Message',
+    form_submit: 'Send Request',
+    form_submitting: 'Sending...',
+    form_success: 'Thank you! We will contact you soon.',
+    form_name_placeholder: 'John Doe',
+    form_company_placeholder: 'ABC Company',
+    form_phone_placeholder: '+84 901 234 567',
+    form_message_placeholder: 'Material, process, volume, special requirements...',
+    form_product_label: 'Product of Interest',
+    form_product_select: '-- Select Product --',
+    form_product_marking: 'Laser Marking Machine',
+    form_product_skinning: 'Laser Wire Stripping Machine',
+    form_product_welding: 'Laser Welding Machine',
+    form_product_cutting: 'Laser Cutting Machine',
+    form_product_automation: 'Non-Standard Automation Equipment',
+    contact_address_full: 'Hap Linh Industrial Cluster, Hap Linh Ward, Bac Ninh City',
+    contact_china_location: 'Kunshan, Jiangsu',
+    contact_footer_rights: 'Nghe Huy Hien Co., Ltd. All rights reserved.',
+    contact_footer_location: 'Hap Linh, Bac Ninh',
+    
+    // Contact buttons
+    contact_btn_zalo: 'Chat Zalo',
+    contact_btn_whatsapp: 'WhatsApp',
+    contact_btn_wechat: 'WeChat',
+    contact_btn_phone: 'Call',
+    contact_btn_email: 'Email',
+    scroll_to_top: 'Back to Top',
+    
+    // Footer
+    footer_company: 'Vietnam Yihuixuan Co., Ltd.',
+    footer_tagline: 'Laser Equipment & Automation Solutions',
+    footer_products: 'Products',
+    footer_company_section: 'Company',
+    footer_support: 'Support',
+    footer_all_rights: 'All rights reserved',
+    
+    // Products page
+    products_hero_title: 'Our Products',
+    products_hero_subtitle: 'Explore leading industrial laser equipment product line',
+    products_page_title: 'Our',
+    products_page_title_em: 'Products',
+    products_page_subtitle: 'Explore leading industrial laser equipment product line',
+    cat_all: 'All',
+    cat_marking: 'Laser Marking',
+    cat_skinning: 'Wire Stripping',
+    cat_welding: 'Laser Welding',
+    cat_cutting: 'Laser Cutting',
+    cat_automation: 'Automation Equipment',
+    cat_accessories: 'Parts & Accessories',
+    no_products: 'No products available',
+    view_detail: 'View Details',
+    loading: 'Loading...',
+    error_load: 'Unable to load products',
+    no_products_found: 'No products found',
+    detail_breadcrumb_home: 'Home',
+    detail_breadcrumb_products: 'Products',
+    specifications: 'Specifications',
+    applications: 'Applications',
+    features: 'Features',
+    advantages: 'Advantages',
+    
+    // About page
+    about_hero_title: 'About Borna Laser',
+    about_hero_subtitle: 'Your Trusted Partner in Industrial Laser Technology',
+    about_story_label: 'Our Story',
+    about_story_title: 'Journey of',
+    about_story_title_em: 'Innovation',
+    about_story_p1: 'Founded in 2015, Borna Laser has grown from a small startup to become one of the leading laser equipment providers in Vietnam.',
+    about_story_p2: 'With a team of experienced engineers and a commitment to quality, we have served over 500 businesses across various industries.',
+    about_story_p3: 'Our mission is to bring advanced laser technology to Vietnamese manufacturers, helping them improve productivity and product quality.',
+    about_values_label: 'Core Values',
+    about_values_title: 'What We',
+    about_values_title_em: 'Stand For',
+    about_value_1_title: 'Professional',
+    about_value_1_desc: 'Expert team with deep industry knowledge',
+    about_value_2_title: 'Innovative',
+    about_value_2_desc: 'Always updating latest technology',
+    about_value_3_title: 'Reliable',
+    about_value_3_desc: 'Quality products, dedicated service',
+    about_value_4_title: 'Win-Win',
+    about_value_4_desc: 'Success together with customers',
+    about_team_label: 'Our Team',
+    about_team_title: 'Meet the',
+    about_team_title_em: 'Experts',
+    about_team_subtitle: 'Experienced professionals dedicated to your success',
+    about_cta_title: 'Ready to work with us?',
+    about_cta_subtitle: 'Contact us today for a free consultation',
+    contact_us: 'Contact Us',
+  }
+};
+
+export type Lang = 'vi' | 'zh' | 'en';
+
+export function getLang(): Lang {
+  if (typeof window === 'undefined') return 'vi';
+  return (localStorage.getItem('borna_lang') as Lang) || 'vi';
+}
+
+export function setLang(lang: Lang) {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem('borna_lang', lang);
+  
+  // Dispatch custom event for same-tab updates
+  window.dispatchEvent(new Event('langchange'));
+  
+  // No reload - let components handle the update via event
+}

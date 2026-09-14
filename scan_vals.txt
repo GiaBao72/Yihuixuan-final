@@ -1,0 +1,256 @@
+===== vi =====
+Bước sóng laser || 880–980nm
+Bước sóng laser || 915nm / 1070nm
+Bước sóng || 10640nm
+Bước sóng || 1064nm
+Bước sóng || 1064–1080nm
+Bước sóng || 355nm
+Công suất laser || 1500W / 2000W / 3000W
+Công suất laser || 20–240W có thể điều chỉnh
+Công suất laser || 30W / 50W
+Công suất laser || 30W / 60W
+Công suất laser || 40W / 60W
+Công suất laser || 5W / 10W
+Công suất laser || 60W
+Công suất laser || 60–150W (915nm) / 200W (1070nm)
+Công suất laser || 70W / 150W
+Công suất laser || 70W / 150W / 300W
+Công suất thiết bị || ≤3.7KW
+Công suất tiêu thụ || ≤1W
+Công suất tiêu thụ || ≤2W
+Công suất tiêu thụ || ≤2kW
+Công suất tiêu thụ || ≤3W
+Công suất tiêu thụ || ≤3kW
+Công suất tiêu thụ || ≤5kW
+Công suất tiêu thụ || ≤7kW
+Công suất định mức || 3.5KW
+Công suất định mức || 4.5KW
+Dòng điện tối đa || 25A
+Giám sát hàn || Camera đồng trục
+Hiệu quả hàn || ~2000 điểm/giờ
+Hành trình làm việc || 1000×700×300mm
+Hành trình làm việc || 100×100mm
+Hành trình làm việc || 300×150mm
+Hình dạng quang điểm || Tròn, chữ nhật, vuông, elip, tuyến tính; có thể tùy chỉnh
+Hình dạng quang điểm || Tròn, vuông, chữ nhật, elip, tuyến tính; tùy chỉnh
+Khí N₂ || 0.5MPa 99.99%–99.999%
+Khí nén || 0.7MPa
+Kích thước ngoài (mm) || 1000×900×1800
+Kích thước ngoài || 1150×950×1700mm
+Kích thước ngoài || 850×950×1650mm
+Kích thước thiết bị || 1000×800×1500mm
+Kích thước thiết bị || 1035×700×1470mm
+Kích thước thiết bị || 1100×1000×1500mm
+Kích thước thiết bị || 1300×500×1000mm
+Kích thước thiết bị || 1800×1500×2000mm
+Kích thước thiết bị || 2500×1600×2100mm
+Kích thước thiết bị || 800×500×1300mm
+Kích thước thiết bị || 900×700×1300mm
+Loại laser || CO2
+Loại laser || Liên tục / Xung
+Loại laser || QCW
+Loại laser || Sợi quang
+Loại laser || UV
+Làm mát || Gió
+Làm mát || Gió / Nước
+Làm mát || Nước
+Mã thiết bị || BN-BQX200
+Mã thiết bị || BN-DXG1501
+Mã thiết bị || BN-G6050
+Mã thiết bị || BN-SXS1501
+Mã thiết bị || BN-XQ200
+Nguồn điện || AC 220V 50Hz
+Nguồn điện || AC 220V ± 10%, 50Hz / 60Hz
+Nguồn điện || AC 320V 50Hz
+Nguồn điện || AC220V/50HZ
+Nhiệt độ || 20–30°C, 20–70%
+Nạp thiếc || Dài ±5, ±10%
+Phương thức làm việc || Đôi vị trí chân đạp
+Phương thức vận hành || Trục XYZ
+Phương thức vận hành || Đôi vị trí, tiến lùi
+Phương thức định vị || CCD
+Phương thức định vị || Camera
+Phương thức định vị || Hồng ngoại / CCD
+Phương thức định vị || Hồng ngoại / Camera CCD
+Phạm vi hàn || 250mm / Đơn vị
+Phạm vi khắc || 110×110mm
+Phạm vi làm việc || 200×200mm
+Phạm vi làm việc || 200×200mm (2 trục Y)
+Phạm vi trùng lặp || Dài ±5, ±10%
+Thiết bị làm mát || Gió / Nước
+Tần số trùng lặp || 1Hz–5000Hz (công suất đỉnh)
+Tốc độ bóc || 0–200 mm/s
+Tốc độ cắt || 1–500 mm/s
+Tốc độ hàn || 0–7000 mm/s
+Tốc độ hàn || 0–8000 mm/s
+Tốc độ khắc || 0–3000 mm/s
+Điều khiển vận động || PC + Card điều khiển PLC
+Điều khiển vận động || PC + Card điều khiển từng bước
+Điện áp || AC220V
+Đường kính cáp || 0.3–1.5mm
+Định dạng hỗ trợ || DSP, PLT, BMP, DXF, DWG, AI, LAS
+Độ chính xác lặp lại || ±0.01mm
+Độ chính xác lặp lại || ±0.02mm
+Độ chính xác định vị || ±0.01mm
+Độ chính xác định vị || ±0.05mm
+Độ rộng nhỏ nhất || 0.05mm
+===== zh =====
+N₂气体 || 0.5MPa 99.99%–99.999%
+冷却方式 || Gió
+冷却方式 || Nước
+冷却方式 || 水冷
+冷却设备 || 风冷 / 水冷
+切割速度 || 1–500 mm/s
+剥线精度 || ±0.01mm
+功耗 || <=1W
+功耗 || <=3W
+功耗 || ≤1.5KW
+功耗 || ≤2W
+功耗 || ≤2kW
+功耗 || ≤3W
+功耗 || ≤3kW
+功耗 || ≤5kW
+功耗 || ≤7kW
+加工速度 || 高速
+压缩空气 || 0.7MPa
+外形尺寸 || 850×950×1650mm
+定位方式 || CCD
+定位方式 || Camera
+定位方式 || Hồng ngoại / CCD
+定位方式 || Hồng ngoại / Camera CCD
+定位方式 || 相机
+定位方式 || 红外 / CCD相机
+定位精度 || ±0.01mm
+定位精度 || ±0.05mm
+工作方式 || Đôi vị trí chân đạp
+工作模式 || 双工位脚踏
+工作范围 || 200×200mm
+工作行程 || 1000×700×300mm
+工作行程 || 100×100mm
+打标范围 || 110x110mm
+打标速度 || 0-3000 mm/s
+操作方式 || 一键式
+支持格式 || DSP, PLT, BMP, DXF, DWG, AI, LAS
+最大电流 || 25A
+最小宽度 || 0.05mm
+最小线宽 || 0.05mm
+波长 || 10640nm
+波长 || 1064nm
+波长 || 1064nm / 10640nm / 355nm
+波长 || 1064–1080nm
+激光功率 || 1500W / 2000W / 3000W
+激光功率 || 20W / 30W
+激光功率 || 30W / 50W
+激光功率 || 30W / 60W
+激光功率 || 60W
+激光功率 || 60–150W (915nm) / 200W (1070nm)
+激光功率 || 70W / 150W
+激光功率 || 70W / 150W / 300W
+激光波长 || 915nm / 1070nm
+激光类型 || CO2
+激光类型 || Liên tục / Xung
+激光类型 || QCW
+激光类型 || Sợi quang
+激光类型 || YAG / CO2 / UV
+激光类型 || 光纤
+焊接速度 || 0–7000 mm/s
+焊接速度 || 0–8000 mm/s
+电压 || AC220V
+电源 || AC 220V ± 10%, 50Hz / 60Hz
+电源 || AC220V/50HZ
+设备代码 || BN-XQ200
+设备功率 || ≤3.7KW
+设备尺寸 || 1000×800×1500mm
+设备尺寸 || 1035x700x1470mm
+设备尺寸 || 1035×700×1470mm
+设备尺寸 || 1100×1000×1500mm
+设备尺寸 || 1800×1500×2000mm
+设备尺寸 || 2500×1600×2100mm
+设备尺寸 || 900x700x1300mm
+设备编号 || BN-G6050
+适用线径 || 0.1-10mm
+重复精度 || ±0.01mm
+重复频率 || 1Hz–5000Hz (công suất đỉnh)
+雕刻范围 || 110x110mm
+雕刻范围 || 110×110mm
+雕刻速度 || 0-3000 mm/s
+雕刻速度 || 0–3000 mm/s
+额定功率 || 3.5KW
+===== en =====
+Compressed air || 0.7MPa
+Cooling equipment || Gió / Nước
+Cooling method || Nước
+Cooling || Gió
+Cooling || Nước
+Cutting speed || 1–500 mm/s
+Device size || 1035x700x1470mm
+Device size || 1300x500x1000mm
+Device size || 800x500x1300mm
+Device size || 900x700x1300mm
+Engraving range || 110x110mm
+Engraving speed || 0-3000 mm/s
+Equipment code || BN-G6050
+Equipment code || BN-XQ200
+Equipment dimensions || 1000×800×1500mm
+Equipment dimensions || 1100×1000×1500mm
+Equipment dimensions || 1800×1500×2000mm
+Equipment dimensions || 2500×1600×2100mm
+Equipment power || ≤3.7KW
+External dimensions || 850×950×1650mm
+Laser power || 1500W / 2000W / 3000W
+Laser power || 30W / 50W
+Laser power || 30W / 60W
+Laser power || 40W / 60W
+Laser power || 5W / 10W
+Laser power || 60W
+Laser power || 60–150W (915nm) / 200W (1070nm)
+Laser power || 70W / 150W
+Laser power || 70W / 150W / 300W
+Laser type || CO2
+Laser type || Liên tục / Xung
+Laser type || QCW
+Laser type || Sợi quang
+Laser type || UV
+Laser wavelength || 915nm / 1070nm
+Marking range || 110x110mm
+Marking speed || 0-3000 mm/s
+Maximum current || 25A
+Minimum width || 0.05mm
+N₂ gas || 0.5MPa 99.99%–99.999%
+Positioning accuracy || ±0.01mm
+Positioning accuracy || ±0.05mm
+Positioning method || CCD
+Positioning method || Camera
+Positioning method || Hồng ngoại / CCD
+Positioning method || Hồng ngoại / Camera CCD
+Power consumption || <=1W
+Power consumption || <=2W
+Power consumption || <=3W
+Power consumption || <=3kW
+Power consumption || ≤2kW
+Power consumption || ≤3kW
+Power consumption || ≤5kW
+Power consumption || ≤7kW
+Power supply || AC 220V ± 10%, 50Hz / 60Hz
+Power supply || AC220V/50HZ
+Rated power || 3.5KW
+Repeatability accuracy || ±0.01mm
+Repeatability || ±0.01mm
+Repetition frequency || 1Hz-5000Hz (công suất đỉnh)
+Repetition frequency || 1Hz–5000Hz (công suất đỉnh)
+Stripping speed || 0-200 mm/s
+Supported formats || DSP, PLT, BMP, DXF, DWG, AI, LAS
+Voltage || AC220V
+Wavelength || 1064-1080nm
+Wavelength || 10640nm
+Wavelength || 1064nm
+Wavelength || 1064–1080nm
+Wavelength || 355nm
+Welding speed || 0-7000 mm/s
+Welding speed || 0–7000 mm/s
+Welding speed || 0–8000 mm/s
+Working mode || Đôi vị trí chân đạp
+Working range || 200×200mm
+Working stroke || 1000×700×300mm
+Working stroke || 100×100mm
+Working stroke || 300x150mm

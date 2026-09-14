@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option 1: Tech Showcase Premium - Yihuixuan Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a1929;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Animated Gradient Mesh Background */
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #020b1a 0%, #0a1929 50%, #030e1f 100%);
+      z-index: 0;
+    }
+
+    .bg-mesh::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(25, 118, 210, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(0, 255, 255, 0.08) 0%, transparent 50%);
+      animation: meshMove 20s ease-in-out infinite;
+    }
+
+    @keyframes meshMove {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(5%, 5%); }
+    }
+
+    /* Floating Particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(25, 118, 210, 0.4);
+      border-radius: 50%;
+      animation: float 15s infinite;
+    }
+
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .particle:nth-child(3) { left: 50%; animation-delay: 4s; }
+    .particle:nth-child(4) { left: 70%; animation-delay: 6s; }
+    .particle:nth-child(5) { left: 90%; animation-delay: 8s; }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+    }
+
+    /* Main Container */
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Bento Grid Layout */
+    .product-section {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      width: 100%;
+    }
+
+    /* Text Side */
+    .text-side {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .badge-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .number-badge {
+      font-size: 72px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #1976d2 0%, #00FFFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      animation: neonPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes neonPulse {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5)); }
+      50% { filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)); }
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #00FFFF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .title {
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .title em {
+      background: linear-gradient(135deg, #1976d2 0%, #00FFFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: normal;
+      position: relative;
+    }
+
+    .title em::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #1976d2, #00FFFF);
+      animation: underlineGrow 1s ease-out;
+    }
+
+    @keyframes underlineGrow {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .description {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #b0bec5;
+    }
+
+    /* Glass Cards */
+    .info-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(25, 118, 210, 0.5), rgba(0, 255, 255, 0.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
+    }
+
+    .info-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #00FFFF;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-list li {
+      font-size: 15px;
+      color: #cfd8dc;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .card-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #1976d2;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 36px;
+      background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 24px rgba(25, 118, 210, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(25, 118, 210, 0.6);
+    }
+
+    /* Bento Grid Gallery */
+    .gallery-side {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 120px);
+      gap: 16px;
+      animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+    }
+
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 1;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+      z-index: 10;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Bento Grid Sizes */
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+    .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+    .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 2; }
+    .gallery-item:nth-child(5) { grid-column: span 2; grid-row: span 2; }
+
+    .demo-label {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #00FFFF;
+      z-index: 1000;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+
+    @media (max-width: 1024px) {
+      .product-section {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      
+      .title {
+        font-size: 42px;
+      }
+      
+      .number-badge {
+        font-size: 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-label">OPTION 1: Tech Showcase Premium</div>
+  
+  <div class="bg-mesh"></div>
+  
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div class="container">
+    <div class="product-section">
+      <!-- Text Side -->
+      <div class="text-side">
+        <div class="badge-wrapper">
+          <div class="number-badge">01</div>
+          <div class="label">Marking Series</div>
+        </div>
+
+        <h2 class="title">
+          Máy Đánh Dấu <em>Laser</em>
+        </h2>
+
+        <p class="description">
+          Công nghệ laser tiên tiến cho khắc dấu chính xác cao trên mọi vật liệu. 
+          Tốc độ nhanh, độ bền vượt trội, phù hợp sản xuất công nghiệp quy mô lớn.
+        </p>
+
+        <div class="info-card">
+          <div class="card-title">⚙️ Thông số kỹ thuật</div>
+          <ul class="card-list">
+            <li>Laser UV 355nm — khắc lạnh, không biến màu nhựa</li>
+            <li>Laser CO2 — bao bì, thủy tinh, gỗ, vải</li>
+            <li>Laser Fiber 1064nm — kim loại, hợp kim, nhựa cứng</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <div class="card-title">✨ Ưu điểm nổi bật</div>
+          <ul class="card-list">
+            <li>Độ chính xác ±0.01mm, không tiếp xúc vật liệu</li>
+            <li>Tốc độ 7000mm/s, tăng năng suất 300%</li>
+            <li>Tuổi thọ 100,000 giờ, bảo trì tối thiểu</li>
+          </ul>
+        </div>
+
+        <a href="#" class="cta-button">
+          Xem chi tiết sản phẩm →
+        </a>
+      </div>
+
+      <!-- Gallery Side (Bento Grid) -->
+      <div class="gallery-side">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Laser 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400" alt="Laser 2">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400" alt="Laser 3">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=400" alt="Laser 4">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800" alt="Laser 5">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
